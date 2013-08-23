@@ -21,6 +21,7 @@ build/
 # MSTest test Results
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
+test-results/
 
 *_i.c
 *_p.c
@@ -152,3 +153,5 @@ $RECYCLE.BIN/
 /Gemfile.lock
 /config/nuget.rb
 /src/*.DotSettings
+
+/src/*.userprefs

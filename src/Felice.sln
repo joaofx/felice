@@ -11,6 +11,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{9B742AE2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felice.UnitTests", "Felice.Core.Tests\Felice.UnitTests.csproj", "{FAD3AF78-0AD0-4B27-A67E-0EFC199200F8}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{E092293B-90A8-4322-8394-501DFDC8D3E1}"
+	ProjectSection(SolutionItems) = preProject
+		..\rakefile.rb = ..\rakefile.rb
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

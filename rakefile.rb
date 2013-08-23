@@ -5,7 +5,7 @@ require './config/nuget.rb'
 # TODO: remove duplicated tasks
 
 # actual version
-VERSION = '0.1.0'
+VERSION = '0.1.1'
 
 # dirs
 current_dir = File.dirname(__FILE__)
@@ -76,6 +76,13 @@ nuspec :spec_core do |nuspec|
 	nuspec.projectUrl = "https://github.com/joaofx/Felice"
 	nuspec.output_file = "Felice.nuspec"
 	nuspec.working_directory = "#{build_dir}/release_core"
+
+	nuspec.dependency "log4net", "2.0.0"
+	nuspec.dependency "structuremap", "2.6.4.1"
+	nuspec.dependency "NHibernate", "3.3.3.4001"
+	nuspec.dependency "FluentNHibernate", "1.3.0.733"
+	nuspec.dependency "NHibernate.Caches.SysCache", "3.3.3.4000"
+	nuspec.dependency "Microsoft.AspNet.Mvc", "4.0.30506.0"
 end
   
 nuspec :spec_test do |nuspec|
@@ -88,6 +95,12 @@ nuspec :spec_test do |nuspec|
 	nuspec.projectUrl = "https://github.com/joaofx/Felice"
 	nuspec.output_file = "Felice.TestFramework.nuspec"
 	nuspec.working_directory = "#{build_dir}/release_test"
+
+	nuspec.dependency "Felice", "0.1.0"
+	nuspec.dependency "NUnit", "2.6.2"
+	nuspec.dependency "nbehave.spec.nunit", "0.6.2"
+	nuspec.dependency "NSubstitute", "1.6.1.0"
+	nuspec.dependency "structuremap.automocking", "2.6.4.1"
 end
 
 nugetpack :pack_core do |nuget|
