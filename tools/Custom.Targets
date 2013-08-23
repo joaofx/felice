@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+
+	<PropertyGroup>
+		<SourceAnalysisTreatErrorsAsWarnings>false</SourceAnalysisTreatErrorsAsWarnings>
+		<RestorePackages>true</RestorePackages>
+	</PropertyGroup>
+	
+	<!--
+	<Import Project="stylecop\StyleCop.targets" />
+	-->
+
+	<Import Project="$([System.IO.Path]::GetFullPath('src\.nuget\NuGet.targets'))" />
+
+    <Target Name="AfterBuild">
+
+		<!--
+		<Copy 
+			SourceFiles="$([System.IO.Path]::GetFullPath('..\..\config\test_settings.config'))" 			
+			DestinationFiles="$(TargetDir)\settings.config"
+			Condition="$(MSBuildProjectName.EndsWith('Tests'))"
+			ContinueOnError="true" />
+			
+		<Copy 
+			SourceFiles="$([System.IO.Path]::GetFullPath('..\..\config\development_settings.config'))" 			
+			DestinationFiles="$(TargetDir)\settings.config"
+			Condition="$(MSBuildProjectName.EndsWith('Tests'))==false"
+			ContinueOnError="true" />
+		-->
+		
+	</Target>
+
+</Project>
