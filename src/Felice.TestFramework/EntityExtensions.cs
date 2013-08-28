@@ -2,8 +2,8 @@
 {
     using System;
     using Core;
-    using Core.Data;
     using Core.Model;
+    using Data;
     using NBehave.Spec.NUnit;
     using NHibernate;
 

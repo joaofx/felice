@@ -3,9 +3,9 @@ namespace Felice.TestFramework
     using System;
     using System.Linq.Expressions;
     using Core;
-    using Core.Data;
     using Core.Logs;
     using Core.Model;
+    using Data;
     using NHibernate;
 
     public class IntegratedTest : AutomatedTest
@@ -28,7 +28,8 @@ namespace Felice.TestFramework
             }
 
             Database.Initialize();
-            Database.UpdateSchema();
+            ////Database.ExportSchema();
+            Database.MigrateToLastVersion();
         }
 
         public virtual void Scenario()

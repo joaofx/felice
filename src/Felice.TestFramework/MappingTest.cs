@@ -1,9 +1,9 @@
 namespace Felice.TestFramework
 {
-    using Core.Data;
+    using Data;
     using FluentNHibernate.Testing;
 
-    public class MappingTest : IntegratedTest
+    public abstract class MappingTest : IntegratedTest
     {
         protected PersistenceSpecification<T> Entity<T>()
         {

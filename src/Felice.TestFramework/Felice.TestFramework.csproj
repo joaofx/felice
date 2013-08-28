@@ -95,6 +95,10 @@
       <Project>{7FD26896-170D-419C-A05F-881F8F769502}</Project>
       <Name>Felice.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Felice.Data\Felice.Data.csproj">
+      <Project>{A575AF12-0CF7-4509-8396-FE1A86F40CF7}</Project>
+      <Name>Felice.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\..\tools\Felice.Targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
