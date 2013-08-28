@@ -2,6 +2,10 @@ namespace Felice.TestFramework
 {
     using StructureMap.AutoMocking;
 
+    /// <summary>
+    /// Unit test a class mocking and injecting dependencies in constructor
+    /// </summary>
+    /// <typeparam name="T">Class under test</typeparam>
     public class MockedTest<T> : AutoMocker<T> where T : class
     {
         public MockedTest()

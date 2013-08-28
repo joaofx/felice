@@ -5,7 +5,7 @@ require './config/nuget.rb'
 # TODO: remove duplicated tasks
 
 # actual version
-VERSION = '0.1.1'
+VERSION = '0.1.3'
 
 # dirs
 current_dir = File.dirname(__FILE__)
