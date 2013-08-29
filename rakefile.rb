@@ -3,7 +3,7 @@ require 'fileutils'
 require './config/nuget.rb'
 
 # actual version
-VERSION = "0.1.3"
+VERSION = "0.1.4"
 AUTHORS = "joaofx"
 DESCRIPTION = ".net framework that helps you build applications easily"
 PROJECT_URL = "https://github.com/joaofx/Felice"
@@ -21,7 +21,7 @@ nuget_exe = "tools/nuget/NuGet.exe"
 # tasks
 task :default => [ :prepare, :compile, ]
 task :package => [ :asm, :compile, :copy_release, :spec, :pack ]
-task :release => [ :package, :push ]
+task :publish => [ :package, :push ]
 
 task :prepare do
 	FileUtils.rm_rf('build')
@@ -192,4 +192,31 @@ nugetpack :pack_test do |nuget|
    nuget.command     = nuget_exe
    nuget.nuspec      = "#{release_dir}/Felice.TestFramework.nuspec"
    nuget.output      = "#{package_dir}"
+end
+
+# publish packages
+task :push => [ :push_core, :push_data, :push_mvc, :push_test ]
+
+nugetpush :push_core do |nuget|
+	nuget.command = nuget_exe
+	nuget.package = "#{build_dir}/package/Felice.#{VERSION}.nupkg"
+	nuget.apikey = API_KEY	
+end
+
+nugetpush :push_data do |nuget|
+	nuget.command = nuget_exe
+	nuget.package = "#{build_dir}/package/Felice.Data.#{VERSION}.nupkg"
+	nuget.apikey = API_KEY	
+end
+
+nugetpush :push_mvc do |nuget|
+	nuget.command = nuget_exe
+	nuget.package = "#{build_dir}/package/Felice.Mvc.#{VERSION}.nupkg"
+	nuget.apikey = API_KEY	
+end
+
+nugetpush :push_test do |nuget|
+	nuget.command = nuget_exe
+	nuget.package = "#{build_dir}/package/Felice.TestFramework.#{VERSION}.nupkg"
+	nuget.apikey = API_KEY	
 end
