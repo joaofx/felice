@@ -3,7 +3,7 @@ require 'fileutils'
 require './config/nuget.rb'
 
 # actual version
-VERSION = "0.1.4"
+VERSION = "0.1.5"
 AUTHORS = "joaofx"
 DESCRIPTION = ".net framework that helps you build applications easily"
 PROJECT_URL = "https://github.com/joaofx/Felice"
@@ -100,7 +100,7 @@ nuspec :spec_core do |nuspec|
     nuspec.working_directory = release_dir
     nuspec.output_file = "Felice.nuspec"
         
-    nuspec.file "Felice.Core.dll"      
+    nuspec.file "Felice.Core.dll", "lib"
        
     nuspec.dependency "log4net", "2.0.0"
     nuspec.dependency "structuremap", "2.6.4.1"
@@ -117,7 +117,7 @@ nuspec :spec_data do |nuspec|
     nuspec.working_directory = release_dir
     nuspec.output_file = "Felice.Data.nuspec"
         
-    nuspec.file "Felice.Data.dll"      
+    nuspec.file "Felice.Data.dll", "lib"
        
     nuspec.dependency "Felice", "[#{VERSION}]"
     nuspec.dependency "NHibernate", "3.3.3.4001"
@@ -138,7 +138,7 @@ nuspec :spec_mvc do |nuspec|
     nuspec.working_directory = release_dir
     nuspec.output_file = "Felice.Mvc.nuspec"
         
-    nuspec.file "Felice.Mvc.dll"
+    nuspec.file "Felice.Mvc.dll", "lib"
        
     nuspec.dependency "Felice", "[#{VERSION}]"
     nuspec.dependency "Felice.Data", "[#{VERSION}]"
@@ -156,7 +156,7 @@ nuspec :spec_test do |nuspec|
     nuspec.working_directory = release_dir
     nuspec.output_file = "Felice.TestFramework.nuspec"
         
-    nuspec.file "Felice.TestFramework.dll"
+    nuspec.file "Felice.TestFramework.dll", "lib"
        
     nuspec.dependency "Felice", "[#{VERSION}]"
     nuspec.dependency "Felice.Data", "[#{VERSION}]"
