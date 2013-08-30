@@ -3,7 +3,7 @@ require 'fileutils'
 require './config/nuget.rb'
 
 # actual version
-VERSION = "0.1.7"
+VERSION = "0.1.9"
 AUTHORS = "joaofx"
 DESCRIPTION = ".net framework that helps you build applications easily"
 PROJECT_URL = "https://github.com/joaofx/Felice"

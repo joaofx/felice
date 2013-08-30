@@ -19,7 +19,9 @@ namespace Felice.TestFramework
             this.Scenario();
         }
 
-        public abstract void Scenario();
+        public virtual void Scenario()
+        {
+        }
 
         private ServiceLocator CreateLocator()
         {
