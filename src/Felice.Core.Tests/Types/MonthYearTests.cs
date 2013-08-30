@@ -1,7 +1,7 @@
 ﻿namespace Felice.UnitTests.Types
 {
     using System;
-    using Core.Types;
+    using Felice.Core.Types;
     using NBehave.Spec.NUnit;
     using NUnit.Framework;
     using TestFramework;

@@ -1,7 +1,18 @@
 ﻿namespace Felice.Core.Model
 {
     public abstract class Entity
-    {
+    { 
+        /// <summary>
+        ///     To help ensure hashcode uniqueness, a carefully selected random number multiplier 
+        ///     is used within the calculation.  Goodrich and Tamassia's Data Structures and
+        ///     Algorithms in Java asserts that 31, 33, 37, 39 and 41 will produce the fewest number
+        ///     of collissions.  See http://computinglife.wordpress.com/2008/11/20/why-do-hash-functions-use-prime-numbers/
+        ///     for more information.
+        /// </summary>
+        private const int HashMultiplier = 31;
+
+        private int? cachedHashCode;
+
         public virtual long Id
         {
             get; 
@@ -41,7 +52,28 @@
 
         public override int GetHashCode()
         {
-            return this.IsNew == false ? this.Id.GetHashCode() : base.GetHashCode();
+            if (this.cachedHashCode.HasValue)
+            {
+                return this.cachedHashCode.Value;
+            }
+
+            if (this.IsNew)
+            {
+                this.cachedHashCode = base.GetHashCode();
+            }
+            else
+            {
+                unchecked
+                {
+                    // It's possible for two objects to return the same hash code based on 
+                    // identically valued properties, even if they're of two different types, 
+                    // so we include the object's type in the hash calculation
+                    var hashCode = this.GetType().GetHashCode();
+                    this.cachedHashCode = (hashCode * HashMultiplier) ^ this.Id.GetHashCode();
+                }
+            }
+
+            return this.cachedHashCode.Value;
         }
 
         public override string ToString()

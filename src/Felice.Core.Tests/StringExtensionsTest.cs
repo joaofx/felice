@@ -1,6 +1,6 @@
 ﻿namespace Felice.UnitTests
 {
-    using Core;
+    using Felice.Core;
     using NBehave.Spec.NUnit;
     using NUnit.Framework;
     using TestFramework;
