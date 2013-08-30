@@ -12,6 +12,8 @@
     <AssemblyName>Felice.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,10 +33,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="NBehave.Spec.NUnit">
-      <HintPath>..\packages\nbehave.spec.nunit.0.6.2\lib\net40\NBehave.Spec.NUnit.dll</HintPath>
-    </Reference>
-    <Reference Include="nunit.framework">
+    <Reference Include="NBehave.Spec.NUnit, Version=0.6.2.337, Culture=neutral, processorArchitecture=MSIL" />
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
       <HintPath>..\packages\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -46,11 +46,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="StringExtensionsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Types\MonthYearTest.cs" />
+    <Compile Include="StringExtensionsTest.cs" />
+    <Compile Include="Types\MonthYearTests.cs" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Felice.Core\Felice.Core.csproj">
       <Project>{7FD26896-170D-419C-A05F-881F8F769502}</Project>
@@ -60,6 +59,9 @@
       <Project>{28EEBDFF-AF96-4B22-BDCE-C5385E1EA83D}</Project>
       <Name>Felice.TestFramework</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="..\..\tools\Felice.Targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -62,9 +62,29 @@ namespace Felice.Data
 
         public static void MigrateToLastVersion()
         {
+            //// TODO: separate schema methods in another class
+            
+            Log.Framework.DebugFormat("Migrating database schema to last version");
+
+            if (migrations.Count == 0)
+            {
+                Log.Framework.Warn("No assembly with migrations was found. Use Database.AddMappings(typeof(SomeMigration).Assembly);");
+            }
+
             foreach (var migration in migrations)
             {
-                var announcer = new TextWriterAnnouncer(s => System.Diagnostics.Debug.WriteLine(s));
+                Log.Framework.DebugFormat("Migrating {0}", migration.FullName);
+
+                var announcer = new TextWriterAnnouncer(s =>
+                {
+                    s = s.Replace(Environment.NewLine, string.Empty);
+
+                    if (string.IsNullOrEmpty(s) == false)
+                    {
+                        Log.Framework.DebugFormat(s);    
+                    }
+                });
+
                 var assembly = migration;
 
                 var migrationContext = new RunnerContext(announcer);
@@ -79,6 +99,8 @@ namespace Felice.Data
 
                 runner.MigrateUp();
             }
+
+            Log.Framework.DebugFormat("Database migrated");
         }
     }
 }

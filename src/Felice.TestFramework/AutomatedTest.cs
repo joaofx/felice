@@ -10,11 +10,12 @@ namespace Felice.TestFramework
         {
             FeliceCore.Initialize();
 
+            Log.Framework.DebugFormat("Building test scenario executing your IScenarioBuilder");
+
             var testScenario = Dependency.Resolve<IScenarioBuilder>();
             
             if (testScenario != null)
             {
-                Log.Framework.DebugFormat("Defining test scenario");
                 testScenario.Define();
             }
         }

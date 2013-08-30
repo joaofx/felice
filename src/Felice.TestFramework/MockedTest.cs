@@ -1,18 +1,25 @@
 namespace Felice.TestFramework
 {
+    using NUnit.Framework;
     using StructureMap.AutoMocking;
 
     /// <summary>
     /// Unit test a class mocking and injecting dependencies in constructor
     /// </summary>
     /// <typeparam name="T">Class under test</typeparam>
-    public class MockedTest<T> : AutoMocker<T> where T : class
+    [TestFixture]
+    public abstract class MockedTest<T> : AutoMocker<T> where T : class
     {
-        public MockedTest()
+        [SetUp]
+        public void Setup()
         {
             this._serviceLocator = this.CreateLocator();
-            this._container = new AutoMockedContainer(this._serviceLocator);
+            this._container = new AutoMockedContainer(this._serviceLocator); 
+   
+            this.Scenario();
         }
+
+        public abstract void Scenario();
 
         private ServiceLocator CreateLocator()
         {

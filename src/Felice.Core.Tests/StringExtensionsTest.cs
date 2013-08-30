@@ -5,7 +5,6 @@
     using NUnit.Framework;
     using TestFramework;
 
-    [TestFixture]
     public class StringExtensionsTest : UnitTest
     {
         [Test]
