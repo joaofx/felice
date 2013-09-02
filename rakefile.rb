@@ -163,7 +163,7 @@ nuspec :spec_test do |nuspec|
     nuspec.dependency "Felice.Mvc", "[#{VERSION}]"
 	nuspec.dependency "NUnit", "2.6.2"
 	nuspec.dependency "nbehave.spec.nunit", "0.6.2"
-	nuspec.dependency "NSubstitute", "1.6.1.0"
+	nuspec.dependency "RhinoMocks", "3.6.1"
 	nuspec.dependency "structuremap.automocking", "2.6.4.1"
 end    
 

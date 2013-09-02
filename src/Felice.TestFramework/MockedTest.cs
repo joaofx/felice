@@ -8,14 +8,14 @@ namespace Felice.TestFramework
     /// </summary>
     /// <typeparam name="T">Class under test</typeparam>
     [TestFixture]
-    public abstract class MockedTest<T> : AutoMocker<T> where T : class
+    public abstract class MockedTest<T> where T : class
     {
+        protected RhinoAutoMocker<T> mock;
+
         [SetUp]
         public void Setup()
         {
-            this._serviceLocator = this.CreateLocator();
-            this._container = new AutoMockedContainer(this._serviceLocator); 
-   
+            this.mock = new RhinoAutoMocker<T>(MockMode.AAA);
             this.Scenario();
         }
 
@@ -23,9 +23,14 @@ namespace Felice.TestFramework
         {
         }
 
-        private ServiceLocator CreateLocator()
+        protected T ClassUnderTest
         {
-            return new NSubstituteServiceLocator();
+            get { return this.mock.ClassUnderTest; }
+        }
+
+        protected TMock Get<TMock>() where TMock : class
+        {
+            return this.mock.Get<TMock>();
         }
     }
 }
