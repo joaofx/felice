@@ -21,14 +21,11 @@
             return new MvcHtmlString(string.Format(LinkTag, url, text, classes));
         }
 
-        public static MvcHtmlString ShowValidationSummary(this HtmlHelper helper)
+        public static MvcHtmlString ShowValidationSummary(this HtmlHelper helper, string @class = "flash error")
         {
             if (helper.ViewContext.ViewData.ModelState.IsValid == false)
             {
-                return helper.ValidationSummary(false, null, new
-                {
-                    @class = "flash error"
-                });    
+                return helper.ValidationSummary(false, null, new { @class });    
             }
             
             return MvcHtmlString.Empty;

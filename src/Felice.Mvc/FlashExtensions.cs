@@ -23,19 +23,19 @@
             controller.TempData[ErrorKey] = message;
         }
 
-        public static MvcHtmlString GetAlert(this HtmlHelper helper)
+        public static MvcHtmlString GetAlert(this HtmlHelper helper, string @class = "flash warning")
         {
-            return GetFlashMessage(helper, AlertKey, "warning");
+            return GetFlashMessage(helper, AlertKey, @class);
         }
 
-        public static MvcHtmlString GetSuccess(this HtmlHelper helper)
+        public static MvcHtmlString GetSuccess(this HtmlHelper helper, string @class = "flash notice")
         {
-            return GetFlashMessage(helper, SuccessKey, "notice");
+            return GetFlashMessage(helper, SuccessKey, @class);
         }
 
-        public static MvcHtmlString GetError(this HtmlHelper helper)
+        public static MvcHtmlString GetError(this HtmlHelper helper, string @class = "flash error")
         {
-            return GetFlashMessage(helper, ErrorKey, "error");
+            return GetFlashMessage(helper, ErrorKey, @class);
         }
 
         private static MvcHtmlString GetFlashMessage(
@@ -47,7 +47,7 @@
             {
                 var message = helper.ViewContext.TempData[tempDataKey];
                 return new MvcHtmlString(string.Format(
-                    @"<div class=""flash {1}"">{0}</div>", 
+                    @"<div class=""{1}"">{0}</div>", 
                     message,
                     cssClass));
             }
