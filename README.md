@@ -1,0 +1,94 @@
+Felice
+======
+
+Felice is .net framework that helps you build applications easily.
+
+Not stable. Don't use it in production.
+
+Getting Started
+---------------
+
+It's to be used in a ASP.NET MVC project.
+
+Create a ASP.NET MVC project.
+
+Install Felice.Mvc
+
+```bat
+PM> Install-Package Felice.Mvc
+```
+
+``` csharp
+public class Program
+{
+	static void Main(string[] args)
+	{
+		// create the server
+		var server = new HumbleServer();
+		
+		// set a command to handle echo message
+		server.AddCommand("echo", () => new EchCommand());
+		
+		// start server at any port
+		server.Start(0);
+
+		// create the client
+		var client = new HumbleClient();
+		
+		// connect to the server
+		client.Connect("localhost", server.Port);
+		
+		// send a echo message and then hello world
+		client.Send("echo").Send("hello world");
+
+		// receive hello world
+		Console.WriteLine("Client received: " + client.Receive());
+		
+		Console.ReadKey();
+	}
+}
+
+public class EchoCommand : ICommand
+{
+	public void Execute(IHumbleStream stream)
+	{
+		stream.Send(stream.Receive());
+	}
+}
+```
+
+Install
+-------
+
+```
+PM> Install-Package HumbleNetwork
+```
+
+Build
+----
+
+build quick
+
+build test
+
+build package
+
+
+TODO
+----
+
+* Long running stress test. Many clients and changing messages for a long time.
+* Bug when try to dispose a session
+* License
+* CI generate nuget package and upload it to nuget.org
+* Accept send and receive stream
+* Timeout when send or receive
+* Work with other types of data
+* Send and receive file
+* Server wait for command using async on streams
+* Server works with async on streams
+* Stream send command method
+* Client close or disconnect method
+* Control connected clients
+* Cryptography messages
+* Compact messages
