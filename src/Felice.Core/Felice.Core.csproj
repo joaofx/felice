@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryBase.cs" />
+    <Compile Include="BootAssemblyOfClass.cs" />
     <Compile Include="Boot\DependencyRegistry.cs" />
     <Compile Include="IFeliceInitialization.cs" />
     <Compile Include="IoC\StructureMapDependencyResolver.cs" />

@@ -1,0 +1,24 @@
+﻿@model EditProductForm
+
+<h2>Editing Product</h2>
+
+@using (Html.BeginForm("Edit", "Product"))
+{
+    <fieldset>
+        
+        <div class="editor-field">
+            <div>@Html.LabelFor(x => x.Name)</div>
+            <div>@Html.TextBoxFor(x => x.Name)</div>
+        </div>
+        
+        <div class="editor-field">
+            <div>@Html.LabelFor(x => x.Price)</div>
+            <div>@Html.TextBoxFor(x => x.Price)</div>
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+
+    </fieldset>    
+}
