@@ -69,6 +69,7 @@
   <ItemGroup>
     <Compile Include="Boot\DependencyRegistry.cs" />
     <Compile Include="ColumnNameConvention.cs" />
+    <Compile Include="Initialization.cs" />
     <Compile Include="DaoBase.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="EnumConvention.cs" />

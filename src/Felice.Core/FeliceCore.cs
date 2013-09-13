@@ -2,7 +2,7 @@
 {
     using Logs;
 
-    public class FeliceCore
+    public class FeliceCore : IFeliceInitialization
     {
         private static bool initialized;
 
@@ -14,7 +14,7 @@
             }
         }
 
-        public static void Initialize(LogConfiguration logConfiguration = null)
+        public static IFeliceInitialization Initialize(LogConfiguration logConfiguration = null)
         {
             if (initialized == false)
             {
@@ -25,6 +25,8 @@
                 
                 initialized = true;
             }
+
+            return new FeliceCore();
         }
     }
 }

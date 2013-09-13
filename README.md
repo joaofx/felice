@@ -18,44 +18,8 @@ Install Felice.Mvc
 PM> Install-Package Felice.Mvc
 ```
 
-``` csharp
-public class Program
-{
-	static void Main(string[] args)
-	{
-		// create the server
-		var server = new HumbleServer();
-		
-		// set a command to handle echo message
-		server.AddCommand("echo", () => new EchCommand());
-		
-		// start server at any port
-		server.Start(0);
+Add these lines in your Global.asax.cs
 
-		// create the client
-		var client = new HumbleClient();
-		
-		// connect to the server
-		client.Connect("localhost", server.Port);
-		
-		// send a echo message and then hello world
-		client.Send("echo").Send("hello world");
-
-		// receive hello world
-		Console.WriteLine("Client received: " + client.Receive());
-		
-		Console.ReadKey();
-	}
-}
-
-public class EchoCommand : ICommand
-{
-	public void Execute(IHumbleStream stream)
-	{
-		stream.Send(stream.Receive());
-	}
-}
-```
 
 Install
 -------

@@ -80,6 +80,7 @@
     <Compile Include="FormContext.cs" />
     <Compile Include="Handle.cs" />
     <Compile Include="HtmlExtensions.cs" />
+    <Compile Include="Initialization.cs" />
     <Compile Include="StructureMapFilterAttributeFilterProvider.cs" />
     <Compile Include="IViewModelEnricher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
