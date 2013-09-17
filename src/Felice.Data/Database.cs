@@ -47,7 +47,7 @@ namespace Felice.Data
         {
             if (migrations.Count > 1)
             {
-                throw new ArgumentException("By now only one migration assembly is supported");
+                throw new ArgumentException("By now, only one migration assembly is supported");
             }
 
             migrations.Add(assembly);
