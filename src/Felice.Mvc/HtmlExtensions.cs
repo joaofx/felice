@@ -30,5 +30,14 @@
             
             return MvcHtmlString.Empty;
         }
+
+        public static MvcHtmlString Submit(
+            this HtmlHelper helper,
+            string buttonText,
+            string classes = "")
+        {
+            const string Html = @"<input type=""submit"" value=""{0}"" class=""{1}""";
+            return new MvcHtmlString(string.Format(Html, buttonText, classes));
+        }
     }
 }

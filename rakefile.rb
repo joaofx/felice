@@ -3,7 +3,7 @@ require 'fileutils'
 require './config/nuget.rb'
 
 # actual version
-VERSION = "0.1.13"
+VERSION = "0.1.15"
 AUTHORS = "joaofx"
 DESCRIPTION = ".net framework that helps you build applications easily"
 PROJECT_URL = "https://github.com/joaofx/Felice"
@@ -102,7 +102,7 @@ nuspec :spec_core do |nuspec|
         
     nuspec.file "Felice.Core.dll", "lib"
        
-    nuspec.dependency "log4net", "2.0.0"
+    nuspec.dependency "log4net", "2.0.1"
     nuspec.dependency "structuremap", "2.6.4.1"
         
     nuspec.framework_assembly "System.Web", "net40"

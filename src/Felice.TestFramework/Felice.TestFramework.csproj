@@ -39,8 +39,9 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="log4net">
-      <HintPath>..\packages\log4net.2.0.0\lib\net40-full\log4net.dll</HintPath>
+    <Reference Include="log4net, Version=1.2.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\log4net.2.0.1\lib\net40-full\log4net.dll</HintPath>
     </Reference>
     <Reference Include="NBehave.Spec.NUnit">
       <HintPath>..\packages\nbehave.spec.nunit.0.6.2\lib\net40\NBehave.Spec.NUnit.dll</HintPath>
@@ -75,6 +76,7 @@
     <Compile Include="IntegratedTest.cs" />
     <Compile Include="IScenarioBuilder.cs" />
     <Compile Include="NUnitExtensions.cs" />
+    <Compile Include="Properties\AssemblyInfo.log4net.cs" />
     <Compile Include="RepositoryTest.cs" />
     <Compile Include="UnitTest.cs" />
     <Compile Include="MappingTest.cs" />
@@ -82,6 +84,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
