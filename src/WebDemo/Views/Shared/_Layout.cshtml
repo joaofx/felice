@@ -26,6 +26,12 @@
         </div>
 
         <div id="main">
+            
+            @Html.GetSuccess("alert alert-success")
+            @Html.GetError("alert alert-error")
+            @Html.GetAlert("alert alert-block")
+            @Html.ShowValidationSummary("alert alert-error")
+
             @RenderBody()
 
             <div id="footer">

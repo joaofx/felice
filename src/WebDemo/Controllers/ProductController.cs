@@ -36,7 +36,7 @@
                     Price = form.Price.ToDecimal2()
                 }))
                 .OnFailure(x => View("Edit", form))
-                .OnSuccess(x => RedirectToAction("Index"), "Product was saved");
+                .OnSuccess(x => RedirectToAction("Index"), "Product {0} was saved", form.Name);
         }
     }
 }

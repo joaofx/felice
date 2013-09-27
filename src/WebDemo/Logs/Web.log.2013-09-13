@@ -1,0 +1,6 @@
+2013-09-13 19:42:23,278; 10   ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 
+2013-09-13 19:55:19,023; 13   ; DEBUG; INSERT INTO product (name, price) VALUES (:p0, :p1); select lastval();:p0 = 'iPhone' [Type: String (0)], :p1 = 500 [Type: Decimal (0)] 
+2013-09-13 19:57:14,455; 10   ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 
+2013-09-13 19:57:23,805; 10   ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 
+2013-09-13 19:57:38,309; 19   ; DEBUG; INSERT INTO product (name, price) VALUES (:p0, :p1); select lastval();:p0 = 'Notebook Dell' [Type: String (0)], :p1 = 999 [Type: Decimal (0)] 
+2013-09-13 19:57:38,337; 10   ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 

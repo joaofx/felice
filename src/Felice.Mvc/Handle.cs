@@ -14,9 +14,10 @@
         public static FormActionResult<T> OnSuccess<T>(
             this FormActionResult<T> result, 
             Func<T, ActionResult> successResult, 
-            string successMessage = "")
+            string message = "",
+            params object[] messageArgs)
         {
-            result.SuccessMessage = successMessage;
+            result.SuccessMessage = string.Format(message, messageArgs);
             result.SuccessResult = successResult;
             return result;
         }
