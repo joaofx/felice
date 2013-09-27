@@ -3,7 +3,7 @@ require 'fileutils'
 require './config/nuget.rb'
 
 # actual version
-VERSION = "0.1.15"
+VERSION = "0.1.16"
 AUTHORS = "joaofx"
 DESCRIPTION = ".net framework that helps you build applications easily"
 PROJECT_URL = "https://github.com/joaofx/Felice"
@@ -86,6 +86,9 @@ task :copy_release do
     FileUtils.cp "#{build_dir}/bin/Felice.Data.dll", "#{release_dir}/Felice.Data.dll"
     FileUtils.cp "#{build_dir}/bin/Felice.Mvc.dll", "#{release_dir}/Felice.Mvc.dll"
     FileUtils.cp "#{build_dir}/bin/Felice.TestFramework.dll", "#{release_dir}/Felice.TestFramework.dll"
+    
+    # auxs
+    FileUtils.cp "#{build_dir}/bin/FluentMigrator.Runner.dll", "#{release_dir}/FluentMigrator.Runner.dll"
 end
 
 # create nuspec file
@@ -118,7 +121,8 @@ nuspec :spec_data do |nuspec|
     nuspec.output_file = "Felice.Data.nuspec"
         
     nuspec.file "Felice.Data.dll", "lib"
-       
+    nuspec.file "FluentMigrator.Runner.dll", "lib"
+
     nuspec.dependency "Felice", "[#{VERSION}]"
     nuspec.dependency "NHibernate", "3.3.3.4001"
     nuspec.dependency "NHibernate.Caches.SysCache", "3.3.3.4000"
