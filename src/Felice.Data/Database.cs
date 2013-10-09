@@ -25,14 +25,30 @@ namespace Felice.Data
             }
         }
 
+        public static IDatabaseProvider Provider
+        {
+            get
+            {
+                return Dependency.Resolve<IDatabaseProvider>();
+            }
+        }
+
         public static void Initialize()
         {
             if (initialized == false)
             {
                 Log.Framework.DebugFormat("Initializing Database");
+
+                if (Provider == null)
+                {
+                    //// TODO: better exception
+                    throw new InvalidOperationException("Database provider was not specified");
+                }
+
+                Log.Framework.DebugFormat("Database provider: {0}", Provider.GetType().FullName);
                 Log.Framework.DebugFormat("Database Connection: {0}", SettingsConfig.DatabaseConnectionString);
 
-                new HibernateConfiguration().Build();
+                new HibernateConfiguration().Build(Provider);
 
                 initialized = true;
             }
@@ -45,6 +61,7 @@ namespace Felice.Data
 
         public static void AddMigrations(Assembly assembly)
         {
+            //// TODO: support many migrations assembly
             if (migrations.Count > 1)
             {
                 throw new ArgumentException("By now, only one migration assembly is supported");
@@ -88,7 +105,7 @@ namespace Felice.Data
                 var assembly = migration;
 
                 var migrationContext = new RunnerContext(announcer);
-                var factory = new FluentMigrator.Runner.Processors.Postgres.PostgresProcessorFactory();
+                var factory = Database.Provider.GetMigratorDriver();
                 var processor = factory.Create(SettingsConfig.DatabaseConnectionString, announcer, new ProcessorOptions
                 {
                     Timeout = 60,

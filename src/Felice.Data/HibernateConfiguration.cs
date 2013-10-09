@@ -2,7 +2,6 @@
 {
     using Core;
     using FluentNHibernate.Cfg;
-    using FluentNHibernate.Cfg.Db;
     using FluentNHibernate.Conventions.Helpers;
     using NHibernate.Cfg;
 
@@ -14,7 +13,7 @@
             private set;
         }
 
-        public Configuration Build()
+        public Configuration Build(IDatabaseProvider databaseProvider)
         {
             if (BuiltConfiguration == null)
             {
@@ -22,7 +21,7 @@
                     .ExposeConfiguration(x => x.SetProperty("cache.use_second_level_cache", "true"))
                     .ExposeConfiguration(x => x.SetProperty("cache.use_query_cache", "true"))
                     .ExposeConfiguration(x => x.SetProperty("cache.provider_class", typeof(FeliceCacheProvider).AssemblyQualifiedName))
-                    .Database(PostgreSQLConfiguration.PostgreSQL82.ConnectionString(SettingsConfig.DatabaseConnectionString))
+                    .Database(databaseProvider.GetHibernateDriver(SettingsConfig.DatabaseConnectionString))
                     .Mappings(m =>
                     {
                         foreach (var mapping in Database.Mappings)

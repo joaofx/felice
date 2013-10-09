@@ -6,6 +6,7 @@
     using Logs;
     using StructureMap;
     using Tasks;
+    using WebDemo.Boot;
 
     public class Dependency
     {
@@ -22,6 +23,7 @@
                     scan.LookForRegistries();
 
                     scan.AddAllTypesOf<IFeliceTask>();
+                    scan.AddAllTypesOf<IConfigurationBoot>();
                 });
             });
         }

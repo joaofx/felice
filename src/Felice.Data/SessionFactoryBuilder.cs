@@ -17,7 +17,7 @@
 
         private ISessionFactory BuildFactory()
         {
-            Configuration cfg = new HibernateConfiguration().Build();
+            Configuration cfg = new HibernateConfiguration().Build(Database.Provider);
             ISessionFactory sessionFactory = cfg.BuildSessionFactory();
             return sessionFactory;
         }

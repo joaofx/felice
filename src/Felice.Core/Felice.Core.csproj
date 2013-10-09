@@ -54,8 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryBase.cs" />
-    <Compile Include="BootAssemblyOfClass.cs" />
+    <Compile Include="BootRunner.cs" />
+    <Compile Include="DependencyBoot.cs" />
     <Compile Include="Boot\DependencyRegistry.cs" />
+    <Compile Include="IConfigurationBoot.cs" />
     <Compile Include="IFeliceInitialization.cs" />
     <Compile Include="IoC\StructureMapDependencyResolver.cs" />
     <Compile Include="Properties\AssemblyInfo.log4net.cs" />
