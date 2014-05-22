@@ -10,7 +10,9 @@
     {
         protected void Application_Start()
         {
-            FeliceCore.Initialize().InitializeDatabase().InitializeMvc();
+            FeliceCore.Initialize()
+                .InitializeDatabase()
+                .InitializeMvc();
             
             Database.MigrateToLastVersion();
 
