@@ -1,0 +1,3 @@
+2013-09-27 19:12:32,799; 5    ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 
+2013-09-27 19:12:43,477; 5    ; DEBUG; INSERT INTO product (name, price) VALUES (:p0, :p1); select lastval();:p0 = 'Nokia' [Type: String (0)], :p1 = 55 [Type: Decimal (0)] 
+2013-09-27 19:12:43,568; 10   ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.price as price0_0_ FROM product this_ 

@@ -55,6 +55,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\DatabaseTest.cs" />
     <Compile Include="MockedUnitTest.cs" />
     <Compile Include="Core\Model\EntityTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,6 +75,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="..\..\tools\Felice.Targets" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
