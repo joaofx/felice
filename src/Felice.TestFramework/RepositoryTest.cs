@@ -1,8 +1,8 @@
 ﻿namespace Felice.TestFramework
 {
     using Core.Model;
-    using NBehave.Spec.NUnit;
     using NUnit.Framework;
+    using Should;
 
     public abstract class RepositoryTest<TEntity, TRepository> : IntegratedTest
         where TEntity : Entity

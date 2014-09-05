@@ -4,8 +4,8 @@
     using Core;
     using Core.Model;
     using Data;
-    using NBehave.Spec.NUnit;
     using NHibernate;
+    using Should;
 
     public static class EntityExtensions
     {

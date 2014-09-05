@@ -8,7 +8,7 @@
     {
         public override void Execute(StructureMap.Graph.IAssemblyScanner scan)
         {
-            this.For<IDatabaseProvider>().Use<MySqlDatabaseProvider>();
+            this.For<IDatabaseProvider>().Use<PostgreDatabaseProvider>();
         }
     }
 }
