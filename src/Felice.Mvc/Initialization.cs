@@ -1,8 +1,8 @@
 namespace Felice.Mvc
 {
     using System.Web.Mvc;
-    using Core.IoC;
     using Felice.Core;
+    using IoC;
 
     public static class Initialization
     {

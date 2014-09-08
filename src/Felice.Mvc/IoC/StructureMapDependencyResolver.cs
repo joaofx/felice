@@ -1,8 +1,9 @@
-﻿namespace Felice.Core.IoC
+﻿namespace Felice.Mvc.IoC
 {
     using System;
     using System.Collections.Generic;
     using System.Web.Mvc;
+    using Core;
 
     public class StructureMapDependencyResolver : IDependencyResolver
     {

@@ -155,3 +155,4 @@ $RECYCLE.BIN/
 /src/*.DotSettings
 
 /src/*.userprefs
+/src/WebDemo/Logs
