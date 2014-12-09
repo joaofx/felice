@@ -1,7 +1,7 @@
 ﻿namespace Felice.UnitTests.Core.Model
 {
+    using Should;
     using Felice.Core.Model;
-    using NBehave.Spec.NUnit;
     using NUnit.Framework;
     using TestFramework;
 

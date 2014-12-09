@@ -1,8 +1,8 @@
 ﻿namespace Felice.UnitTests.Types
 {
+    using Should;
     using System;
     using Felice.Core.Types;
-    using NBehave.Spec.NUnit;
     using NUnit.Framework;
     using TestFramework;
 

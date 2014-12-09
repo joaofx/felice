@@ -1,6 +1,6 @@
 ﻿namespace Felice.UnitTests
 {
-    using NBehave.Spec.NUnit;
+    using Should;
     using NUnit.Framework;
     using Rhino.Mocks;
     using TestFramework;
