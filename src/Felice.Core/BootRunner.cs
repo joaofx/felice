@@ -6,12 +6,12 @@
     {
         public static void Initialize()
         {
-            var configurationBoot = Dependency.GetAll<IConfigurationBoot>();
+            ////var configurationBoot = Dependency.GetAll<IConfigurationBoot>();
 
-            foreach (var boot in configurationBoot)
-            {
-                boot.Execute();
-            }
+            ////foreach (var boot in configurationBoot)
+            ////{
+            ////    boot.Execute();
+            ////}
         }
     }
 }

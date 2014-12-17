@@ -9,17 +9,16 @@ namespace Felice.Mvc
         public static IFeliceInitialization InitializeMvc(this IFeliceInitialization init)
         {
             return init
-                .InitializeMvcDependencyResolver()
                 .InitializeMvcFilters()
                 .InitializeMvcViewEngine();
         }
 
-        public static IFeliceInitialization InitializeMvcDependencyResolver(this IFeliceInitialization init)
-        {
-            DependencyResolver.SetResolver(new StructureMapDependencyResolver());
-            FilterProviders.Providers.Add(new StructureMapFilterAttributeFilterProvider());
-            return init;
-        }
+        ////public static IFeliceInitialization InitializeMvcDependencyResolver(this IFeliceInitialization init)
+        ////{
+        ////    DependencyResolver.SetResolver(new StructureMapDependencyResolver());
+        ////    FilterProviders.Providers.Add(new StructureMapFilterAttributeFilterProvider());
+        ////    return init;
+        ////}
 
         public static IFeliceInitialization InitializeMvcFilters(this IFeliceInitialization init)
         {

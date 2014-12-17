@@ -35,20 +35,20 @@ Tarefas:
 {1}
 ";
             var helpText = new StringBuilder();
-            var tasks = Dependency.GetAll<IFeliceTask>().OrderBy(x => x.Command);
+            ////var tasks = Dependency.GetAll<IFeliceTask>().OrderBy(x => x.Command);
 
-            foreach (var tarefa in tasks)
-            {
-                helpText.Append("   ");
-                helpText.Append(tarefa.Command);
-                helpText.Append(Environment.NewLine);
-                helpText.Append("       ");
-                helpText.Append(tarefa.HelpText);
-                helpText.Append(Environment.NewLine);
-                helpText.Append(Environment.NewLine);
-            }
+            ////foreach (var tarefa in tasks)
+            ////{
+            ////    helpText.Append("   ");
+            ////    helpText.Append(tarefa.Command);
+            ////    helpText.Append(Environment.NewLine);
+            ////    helpText.Append("       ");
+            ////    helpText.Append(tarefa.HelpText);
+            ////    helpText.Append(Environment.NewLine);
+            ////    helpText.Append(Environment.NewLine);
+            ////}
 
-            Log.App.Info(string.Format(Help, FeliceCore.Version, helpText));
+            ////Log.App.Info(string.Format(Help, FeliceCore.Version, helpText));
         }
     }
 }

@@ -18,6 +18,12 @@
     {
         private static Container container;
 
+        public static Container Container
+        {
+            get;
+            set;
+        }
+
         public static void Initialize()
         {
             Log.Framework.InfoFormat("Initializing dependency resolver");

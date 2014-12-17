@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felice", "Felice\Felice.csproj", "{E0D9ADB3-8D41-4E49-A496-DB289727A602}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felice.Core", "Felice.Core\Felice.Core.csproj", "{7FD26896-170D-419C-A05F-881F8F769502}"
@@ -28,6 +30,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.Tests", "Demo.Tests\Demo.Tests.csproj", "{B3D6A20A-C762-4074-96F4-CE6D6D662DA8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felice.IntegrationTests", "Felice.IntegrationTests\Felice.IntegrationTests.csproj", "{DBB478C4-F395-4533-B8F1-DF1C4915FD8D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{063C48AF-5E6A-4410-8E7C-046F31722FEE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -129,14 +133,25 @@ Global
 		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D}.Release|x86.ActiveCfg = Release|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{FAD3AF78-0AD0-4B27-A67E-0EFC199200F8} = {9B742AE2-95CF-417C-9F93-DFB304BB42A8}
-		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D} = {9B742AE2-95CF-417C-9F93-DFB304BB42A8}
 		{0BA28B5F-25D2-4A4D-A887-F1413E414ABB} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
 		{B3D6A20A-C762-4074-96F4-CE6D6D662DA8} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
+		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D} = {9B742AE2-95CF-417C-9F93-DFB304BB42A8}
+		{063C48AF-5E6A-4410-8E7C-046F31722FEE} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
 	EndGlobalSection
 EndGlobal

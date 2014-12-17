@@ -14,7 +14,7 @@ namespace Felice.TestFramework
 
         protected IntegratedTest()
         {
-            var connectionString = SettingsConfig.DatabaseConnectionString;
+            var connectionString = AppSettings.ConnectionString;
 
             if (string.IsNullOrEmpty(connectionString))
             {

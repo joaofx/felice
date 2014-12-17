@@ -1,5 +1,6 @@
 ﻿namespace Felice.TestFramework
 {
+    using System.Linq;
     using Core.Model;
     using NUnit.Framework;
     using Should;
@@ -57,7 +58,7 @@
             this.RecreateSession();
 
             var compare = this.repository.All();
-            compare.Length.ShouldEqual(2);
+            compare.Count().ShouldEqual(2);
             compare.ShouldContain(two);
             compare.ShouldContain(three);
         }
@@ -74,7 +75,7 @@
             this.RecreateSession();
 
             var compare = this.repository.All();
-            compare.Length.ShouldEqual(2);
+            compare.Count().ShouldEqual(2);
             compare.ShouldContain(two);
             compare.ShouldContain(three);
         }

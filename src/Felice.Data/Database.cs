@@ -29,7 +29,7 @@ namespace Felice.Data
         {
             get
             {
-                return Dependency.Resolve<IDatabaseProvider>();
+                return new PostgreDatabaseProvider();
             }
         }
 
@@ -46,7 +46,7 @@ namespace Felice.Data
                 }
 
                 Log.Framework.DebugFormat("Database provider: {0}", Provider.GetType().FullName);
-                Log.Framework.DebugFormat("Database Connection: {0}", SettingsConfig.DatabaseConnectionString);
+                Log.Framework.DebugFormat("Database Connection: {0}", AppSettings.ConnectionString);
 
                 new HibernateConfiguration().Build(Provider);
 
@@ -106,7 +106,7 @@ namespace Felice.Data
 
                 var migrationContext = new RunnerContext(announcer);
                 var factory = Database.Provider.GetMigratorDriver();
-                var processor = factory.Create(SettingsConfig.DatabaseConnectionString, announcer, new ProcessorOptions
+                var processor = factory.Create(AppSettings.ConnectionString, announcer, new ProcessorOptions
                 {
                     Timeout = 60,
                     PreviewOnly = false

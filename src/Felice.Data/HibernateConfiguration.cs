@@ -21,7 +21,7 @@
                     .ExposeConfiguration(x => x.SetProperty("cache.use_second_level_cache", "true"))
                     .ExposeConfiguration(x => x.SetProperty("cache.use_query_cache", "true"))
                     .ExposeConfiguration(x => x.SetProperty("cache.provider_class", typeof(FeliceCacheProvider).AssemblyQualifiedName))
-                    .Database(databaseProvider.GetHibernateDriver(SettingsConfig.DatabaseConnectionString))
+                    .Database(databaseProvider.GetHibernateDriver(Core.AppSettings.ConnectionString))
                     .Mappings(m =>
                     {
                         foreach (var mapping in Database.Mappings)

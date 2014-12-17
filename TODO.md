@@ -1,5 +1,9 @@
-0.1
+Features List
 ----
 
-Add console log for migrate runner
-Support mvc project without hibernate
+* Database migration
+    * Runner
+        * Code
+        * Console
+* Inversion Of Control
+* Logging
