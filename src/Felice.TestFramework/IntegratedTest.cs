@@ -89,7 +89,8 @@ namespace Felice.TestFramework
             entity.Persist();
             this.RecreateSession();
 
-            var fetched = this.unitOfWork.Session().Get<T>(entity.Id);
+            var session = Dependency.Resolve<ISession>();
+            var fetched = session.Get<T>(entity.Id);
             return NHibernateUtil.IsPropertyInitialized(fetched, propertyName) == false;
         }
     }

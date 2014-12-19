@@ -4,5 +4,10 @@ namespace Demo.Models
 
     public class Project : Entity
     {
+        public virtual string Name
+        {
+            get;
+            set;
+        }
     }
 }

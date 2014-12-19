@@ -8,8 +8,8 @@
     {
         public void Execute()
         {
-            Database.AddMappings(typeof(ProductMap).Assembly);
-            Database.AddMigrations(typeof(CreateProduct).Assembly);
+            Database.Configuration.AddMappings(typeof(ProductMap).Assembly);
+            Database.Configuration.AddMigrations(typeof(CreateProduct).Assembly);
         }
     }
 }

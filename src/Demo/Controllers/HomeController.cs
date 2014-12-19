@@ -1,20 +1,21 @@
-﻿using System.Web.Mvc;
-
-namespace Demo.Controllers
+﻿namespace Demo.Controllers
 {
-    using Repositories;
+    using System.Web.Mvc;
+    using Felice.Data;
+    using Models;
 
     public class HomeController : Controller
     {
-        private readonly ProjectRepository _projectRepository;
+        private readonly Repository<Project> _projectRepository;
 
-        public HomeController(ProjectRepository projectRepository)
+        public HomeController(Repository<Project> projectRepository)
         {
             _projectRepository = projectRepository;
         }
 
         public ActionResult Index()
         {
+            //// TODO: http://blog.slaks.net/2013-06-11/readonly-vs-immutable/
             return View(_projectRepository.All());
         }
     }

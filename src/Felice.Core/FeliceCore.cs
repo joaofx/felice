@@ -22,12 +22,16 @@
                 Log.Framework.InfoFormat("Felice application started");
 
                 ////Dependency.Initialize();
-                BootRunner.Initialize();
+                BootRunner.Run();
 
                 initialized = true;
             }
 
             return new FeliceCore();
+        }
+
+        public static void Boot()
+        {
         }
     }
 }

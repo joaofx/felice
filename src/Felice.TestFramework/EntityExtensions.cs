@@ -3,7 +3,6 @@
     using System;
     using Core;
     using Core.Model;
-    using Data;
     using NHibernate;
     using Should;
 
@@ -11,7 +10,7 @@
     {
         public static T Persist<T>(this T entity)
         {
-            var session = Dependency.Resolve<ISessionBuilder>().GetSession();
+            var session = Dependency.Resolve<ISession>();
 
             session.SaveOrUpdate(entity);
             session.Flush();
@@ -21,7 +20,7 @@
 
         public static T Delete<T>(this T entity) where T : Entity
         {
-            var session = Dependency.Resolve<ISessionBuilder>().GetSession();
+            var session = Dependency.Resolve<ISession>();
 
             session.Delete(entity);
             session.Flush();

@@ -6,25 +6,20 @@
     using Felice.Core.Logs;
     using Felice.Core.Model;
     using NHibernate;
+    using StructureMap;
 
     public class UnitOfWork : IUnitOfWork
     {
         public static Func<IUnitOfWork> Instance = () => Dependency.Resolve<IUnitOfWork>();
-        private readonly ISessionBuilder sessionBuilder;
-        private ISession session;
+        private ISession _session;
 
-        public UnitOfWork(ISessionBuilder sessionBuilder)
-        {
-            this.sessionBuilder = sessionBuilder;
-        }
-
-        public static ISession CurrentSession
-        {
-            get
-            {
-                return Instance().Session();
-            }
-        }
+        //public static ISession CurrentSession
+        //{
+        //    get
+        //    {
+        //        return Instance().Session();
+        //    }
+        //}
 
         public static void Using(Action action)
         {
@@ -38,25 +33,26 @@
         {
             if (this.ThereIsActiveTransaction())
             {
-                this.session.Transaction.Dispose();
+                this._session.Transaction.Dispose();
             }
 
-            this.session = this.sessionBuilder.GetSession();
-            this.session.BeginTransaction(isolationLevel);
+            //// TODO: is this dependency resolving a smell?
+            this._session = Dependency.Resolve<ISession>();
+            this._session.BeginTransaction(isolationLevel);
 
             Log.Framework.DebugFormat(
                 "Session {0}: transaction begun {1}", 
-                this.session.GetHashCode(),
-                this.session.Transaction.GetHashCode());
+                this._session.GetHashCode(),
+                this._session.Transaction.GetHashCode());
 
             return this;
         }
 
         private bool ThereIsActiveTransaction()
         {
-            if (this.session != null && this.session.Transaction != null)
+            if (this._session != null && this._session.Transaction != null)
             {
-                return this.session.Transaction.IsActive;
+                return this._session.Transaction.IsActive;
             }
 
             return false;
@@ -69,34 +65,34 @@
                 throw new InvalidOperationException("There is no transaction in progress. Call Begin() before call Commit()");
             }
 
-            if (this.session.Transaction.WasCommitted)
+            if (this._session.Transaction.WasCommitted)
             {
                 return;
             }
 
-            this.session.Transaction.Commit();
+            this._session.Transaction.Commit();
 
             Log.Framework.DebugFormat(
                 "Session {0}: transaction committed {1}",
-                this.session.GetHashCode(),
-                this.session.Transaction.GetHashCode());
+                this._session.GetHashCode(),
+                this._session.Transaction.GetHashCode());
         }
 
         public void RollBack()
         {
-            if (this.session == null || this.session.Transaction == null)
+            if (this._session == null || this._session.Transaction == null)
             {
                 return;
             }
 
-            if (this.session.Transaction.IsActive)
+            if (this._session.Transaction.IsActive)
             {
-                this.session.Transaction.Rollback();
+                this._session.Transaction.Rollback();
 
                 Log.Framework.DebugFormat(
                     "Session {0}: transaction rolledback {1}",
-                    this.session.GetHashCode(),
-                    this.session.Transaction.GetHashCode());
+                    this._session.GetHashCode(),
+                    this._session.Transaction.GetHashCode());
             }
         }
 
@@ -118,10 +114,10 @@
             {
                 Log.Framework.DebugFormat(
                     "Session {0}: disposing",
-                    this.session.GetHashCode());
+                    this._session.GetHashCode());
 
-                this.session.Transaction.Dispose();
-                this.session.Dispose();
+                this._session.Transaction.Dispose();
+                this._session.Dispose();
             }
         }
     }

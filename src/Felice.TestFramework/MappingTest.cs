@@ -1,13 +1,15 @@
 namespace Felice.TestFramework
 {
-    using Data;
+    using Core;
     using FluentNHibernate.Testing;
+    using NHibernate;
 
     public abstract class MappingTest : IntegratedTest
     {
         protected PersistenceSpecification<T> Entity<T>()
         {
-            return new PersistenceSpecification<T>(this.unitOfWork.Session());
+            var session = Dependency.Resolve<ISession>();
+            return new PersistenceSpecification<T>(session);
         }
     }
 }

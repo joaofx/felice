@@ -1,7 +1,9 @@
 ﻿namespace Felice.Data
 {
+    using Core;
     using Felice.Core.Logs;
     using Felice.Core.Model;
+    using FluentNHibernate.Cfg;
     using NHibernate;
 
     public static class SessionExtensions
@@ -27,10 +29,10 @@
 
         private static string GetTableName<T>()
         {
-            //// TODO: create a class for this
-            var classMaping = HibernateConfiguration.BuiltConfiguration.GetClassMapping(typeof(T));
+            //// TODO: refactor
+            var classMapping = Dependency.Resolve<FluentConfiguration>().BuildConfiguration().GetClassMapping(typeof(T));
 
-            if (classMaping == null)
+            if (classMapping == null)
             {
                 Log.Framework.InfoFormat(
                     "Was not possible get table name of entity {0}. Check if exist a mapping for this entity.",
@@ -39,7 +41,7 @@
                 return string.Empty;
             }
 
-            return classMaping.Table.Name;
+            return classMapping.Table.Name;
         }
     }
 }

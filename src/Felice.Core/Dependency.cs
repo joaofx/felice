@@ -16,19 +16,17 @@
     /// </summary>
     public class Dependency
     {
-        private static Container container;
-
         public static Container Container
         {
             get;
-            set;
+            private set;
         }
 
         public static void Initialize()
         {
             Log.Framework.InfoFormat("Initializing dependency resolver");
 
-            container = new Container(config => config.Scan(scan =>
+            Container = new Container(config => config.Scan(scan =>
             {
                 scan.AssembliesFromApplicationBaseDirectory();
                 scan.LookForRegistries();
@@ -47,25 +45,30 @@
         {
             if (type.IsAbstract || type.IsInterface)
             {
-                return container.TryGetInstance(type);
+                return Container.TryGetInstance(type);
             }
 
-            return container.GetInstance(type);
+            return Container.GetInstance(type);
         }
 
         public static IEnumerable<object> GetAll(Type type)
         {
-            return container.GetAllInstances(type).Cast<object>();
+            return Container.GetAllInstances(type).Cast<object>();
         }
 
         public static IEnumerable<T> GetAll<T>()
         {
-            return container.GetAllInstances<T>();
+            return Container.GetAllInstances<T>();
         }
 
         public static void BuildUp(object obj)
         {
-            container.BuildUp(obj);
+            Container.BuildUp(obj);
+        }
+
+        public static void SetupContainer(Container container)
+        {
+            Container = container;
         }
     }
 }

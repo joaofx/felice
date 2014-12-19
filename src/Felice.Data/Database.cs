@@ -2,6 +2,7 @@ namespace Felice.Data
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using System.Reflection;
     using Core;
     using Felice.Core.Logs;
@@ -13,23 +14,24 @@ namespace Felice.Data
 
     public class Database
     {
-        private static readonly IList<Assembly> mappings = new List<Assembly>();
-        private static readonly IList<Assembly> migrations = new List<Assembly>();
         private static bool initialized;
-        
-        public static IEnumerable<Assembly> Mappings
+
+        static Database()
         {
-            get
-            {
-                return mappings;
-            }
+            Configuration = new DatabaseConfiguration();    
+        }
+        
+        public static DatabaseConfiguration Configuration
+        {
+            get;
+            private set;
         }
 
-        public static IDatabaseProvider Provider
+        public static DatabaseMigrator Migrator
         {
             get
             {
-                return new PostgreDatabaseProvider();
+                return Dependency.Container.GetInstance<DatabaseMigrator>();
             }
         }
 
@@ -39,56 +41,33 @@ namespace Felice.Data
             {
                 Log.Framework.DebugFormat("Initializing Database");
 
-                if (Provider == null)
-                {
-                    //// TODO: better exception
-                    throw new InvalidOperationException("Database provider was not specified");
-                }
-
-                Log.Framework.DebugFormat("Database provider: {0}", Provider.GetType().FullName);
-                Log.Framework.DebugFormat("Database Connection: {0}", AppSettings.ConnectionString);
-
-                new HibernateConfiguration().Build(Provider);
+                //Log.Framework.DebugFormat("Database provider: {0}", Provider.GetType().FullName);
+                //Log.Framework.DebugFormat("Database Connection: {0}", AppSettings.ConnectionString);
 
                 initialized = true;
             }
         }
 
-        public static void AddMappings(Assembly assembly)
-        {
-            mappings.Add(assembly);
-        }
-
-        public static void AddMigrations(Assembly assembly)
-        {
-            //// TODO: support many migrations assembly
-            if (migrations.Count > 1)
-            {
-                throw new ArgumentException("By now, only one migration assembly is supported");
-            }
-
-            migrations.Add(assembly);
-        }
-
         public static void ExportSchema()
         {
             ////new SchemaExport(HibernateConfiguration.BuiltConfiguration).Execute(false, true, false);
-            Log.Framework.DebugFormat("Updating schema");
-            new SchemaUpdate(HibernateConfiguration.BuiltConfiguration).Execute(false, true);
+            ////Log.Framework.DebugFormat("Updating schema");
+            ////new SchemaUpdate(HibernateConfiguration.BuiltConfiguration).Execute(false, true);
         }
 
         public static void MigrateToLastVersion()
         {
             //// TODO: separate schema methods in another class
-            
+            var provider = Dependency.Resolve<IDatabaseProvider>();
+
             Log.Framework.DebugFormat("Migrating database schema to last version");
 
-            if (migrations.Count == 0)
+            if (Database.Configuration.Migrations.Any() == false)
             {
                 Log.Framework.Warn("No assembly with migrations was found. Use Database.AddMappings(typeof(SomeMigration).Assembly);");
             }
 
-            foreach (var migration in migrations)
+            foreach (var migration in Database.Configuration.Migrations)
             {
                 Log.Framework.DebugFormat("Migrating {0}", migration.FullName);
 
@@ -105,7 +84,7 @@ namespace Felice.Data
                 var assembly = migration;
 
                 var migrationContext = new RunnerContext(announcer);
-                var factory = Database.Provider.GetMigratorDriver();
+                var factory = provider.GetMigratorDriver();
                 var processor = factory.Create(AppSettings.ConnectionString, announcer, new ProcessorOptions
                 {
                     Timeout = 60,
