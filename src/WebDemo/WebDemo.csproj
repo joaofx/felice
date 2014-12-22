@@ -154,14 +154,13 @@
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Boot\DatabaseBoot.cs" />
-    <Compile Include="Boot\DependencyBoot.cs" />
     <Compile Include="Forms\EditProductForm.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\MySqlDatabaseProvider.cs" />
+    <Compile Include="Helpers\MySqlDatabaseAdapter.cs" />
     <Compile Include="Maps\ProductMap.cs" />
     <Compile Include="Migrations\201308281833_CreateProduct.cs" />
     <Compile Include="Models\Product.cs" />

@@ -4,6 +4,7 @@ using System.Web.Routing;
 namespace Demo
 {
     using Felice.Core;
+    using Felice.Core.Logs;
     using Felice.Data;
 
     /// <summary>
@@ -13,6 +14,8 @@ namespace Demo
     {
         protected void Application_Start()
         {
+            Log.Initialize();
+
             //// MVC Stuff
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);

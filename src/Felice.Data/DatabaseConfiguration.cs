@@ -24,12 +24,12 @@ namespace Felice.Data
             }
         }
 
-        public void AddMigrations(Assembly assembly)
+        public void AddMigration(Assembly assembly)
         {
             migrations.Add(assembly);
         }
 
-        public void AddMappings(Assembly assembly)
+        public void AddMapping(Assembly assembly)
         {
             mappings.Add(assembly);
         }

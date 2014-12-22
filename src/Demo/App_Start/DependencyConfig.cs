@@ -14,11 +14,9 @@
 
             container.Configure(x => x.Scan(scan =>
             {
-                scan.TheCallingAssembly();
+                scan.AssembliesFromApplicationBaseDirectory();
                 scan.LookForRegistries();
                 scan.WithDefaultConventions();
-
-                scan.AddAllTypesOf<IDatabaseRegistry>();
             }));
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(container));

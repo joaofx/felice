@@ -4,7 +4,7 @@ namespace Felice.Data
     using FluentMigrator.Runner.Processors.Postgres;
     using FluentNHibernate.Cfg.Db;
 
-    public class PostgreDatabaseProvider : IDatabaseProvider
+    public class PostgreDatabaseAdapter : IDatabaseAdapter
     {
         public IPersistenceConfigurer GetHibernateDriver(string connectionString)
         {

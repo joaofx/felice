@@ -22,7 +22,6 @@
                 Log.Framework.InfoFormat("Felice application started");
 
                 ////Dependency.Initialize();
-                BootRunner.Run();
 
                 initialized = true;
             }

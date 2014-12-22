@@ -72,6 +72,9 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\structuremap.3.1.4.143\lib\net40\StructureMap.Net4.dll</HintPath>
     </Reference>
+    <Reference Include="StructureMap.Web">
+      <HintPath>..\packages\structuremap.web.3.1.0.133\lib\net40\StructureMap.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -83,10 +86,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Boot\DependencyRegistry.cs" />
+    <Compile Include="Boot\NHibernateRegistry.cs" />
     <Compile Include="ColumnNameConvention.cs" />
     <Compile Include="DatabaseConfiguration.cs" />
     <Compile Include="DatabaseMigrator.cs" />
-    <Compile Include="IDatabaseProvider.cs" />
+    <Compile Include="IDatabaseAdapter.cs" />
     <Compile Include="Initialization.cs" />
     <Compile Include="Database.cs" />
     <Compile Include="EnumConvention.cs" />
@@ -95,7 +99,7 @@
     <Compile Include="MonthConvention.cs" />
     <Compile Include="MonthType.cs" />
     <Compile Include="NHibernateSqlAppender.cs" />
-    <Compile Include="PostgreDatabaseProvider.cs" />
+    <Compile Include="PostgreDatabaseAdapter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository.cs" />
     <Compile Include="SessionExtensions.cs" />

@@ -5,7 +5,7 @@
     using FluentMigrator.Runner.Processors.MySql;
     using FluentNHibernate.Cfg.Db;
 
-    public class MySqlDatabaseProvider : IDatabaseProvider
+    public class MySqlDatabaseAdapter : IDatabaseAdapter
     {
         public IPersistenceConfigurer GetHibernateDriver(string connectionString)
         {

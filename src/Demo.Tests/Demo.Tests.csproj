@@ -103,10 +103,6 @@
       <Project>{28EEBDFF-AF96-4B22-BDCE-C5385E1EA83D}</Project>
       <Name>Felice.TestFramework</Name>
     </ProjectReference>
-    <ProjectReference Include="..\WebDemo\WebDemo.csproj">
-      <Project>{0BA28B5F-25D2-4A4D-A887-F1413E414ABB}</Project>
-      <Name>WebDemo</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

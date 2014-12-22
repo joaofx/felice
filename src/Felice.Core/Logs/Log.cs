@@ -9,15 +9,15 @@ namespace Felice.Core.Logs
 
     public class Log
     {
-        private static Logger root;
-        private static ILog frameworkLog;
-        private static ILog applicationLog;
+        private static Logger _root;
+        private static ILog _frameworkLog;
+        private static ILog _applicationLog;
 
         private static Logger Root
         {
             get
             {
-                return root ?? (root = ((Hierarchy)LogManager.GetRepository()).Root);
+                return _root ?? (_root = ((Hierarchy)LogManager.GetRepository()).Root);
             }
         }
 
@@ -25,7 +25,7 @@ namespace Felice.Core.Logs
         {
             get
             {
-                return frameworkLog ?? (frameworkLog = LogManager.GetLogger("Framework"));
+                return _frameworkLog ?? (_frameworkLog = LogManager.GetLogger("Framework"));
             }
         }
 
@@ -33,7 +33,7 @@ namespace Felice.Core.Logs
         {
             get
             {
-                return applicationLog ?? (applicationLog = LogManager.GetLogger("App"));
+                return _applicationLog ?? (_applicationLog = LogManager.GetLogger("App"));
             }
         }
 

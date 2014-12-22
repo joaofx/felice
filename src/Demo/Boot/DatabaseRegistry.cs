@@ -8,8 +8,8 @@
     {
         public DatabaseRegistry()
         {
-            Database.Configuration.AddMappings(typeof(Project).Assembly);
-            Database.Configuration.AddMigrations(typeof(Project).Assembly);
+            Database.Configuration.AddMapping(typeof(Project).Assembly);
+            Database.Configuration.AddMigration(typeof(Project).Assembly);
         }
     }
 }

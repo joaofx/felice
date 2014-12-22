@@ -72,11 +72,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactoryBase.cs" />
-    <Compile Include="BootRunner.cs" />
-    <Compile Include="DependencyBoot.cs" />
     <Compile Include="Boot\DependencyRegistry.cs" />
     <Compile Include="IConfigurationBoot.cs" />
-    <Compile Include="IDatabaseRegistry.cs" />
     <Compile Include="IFeliceInitialization.cs" />
     <Compile Include="StringExtensions.cs" />
     <Compile Include="IO\FileHelper.cs" />

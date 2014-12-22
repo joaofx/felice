@@ -1,25 +1,23 @@
-﻿namespace Demo.Registers
-{
-    using Felice.Core;
-    using Felice.Core.Model;
-    using Felice.Data;
-    using FluentNHibernate.Cfg;
-    using FluentNHibernate.Conventions.Helpers;
-    using Maps;
-    using NHibernate;
-    using NHibernate.Util;
-    using StructureMap;
-    using StructureMap.Configuration.DSL;
-    using StructureMap.Web;
+﻿using Felice.Core;
+using Felice.Core.Model;
+using FluentNHibernate.Cfg;
+using FluentNHibernate.Conventions.Helpers;
+using NHibernate;
+using NHibernate.Util;
+using StructureMap;
+using StructureMap.Configuration.DSL;
+using StructureMap.Web;
 
+namespace Felice.Data.Boot
+{
     public class NHibernateRegistry : Registry
     {
         public NHibernateRegistry()
         {
             //// TODO: read provider connectionString in app.config
-            For<IDatabaseProvider>()
+            For<IDatabaseAdapter>()
                 .Singleton()
-                .Use<PostgreDatabaseProvider>();
+                .Use<PostgreDatabaseAdapter>();
 
             For<FluentConfiguration>().Singleton().Use(x => CreateFluentConfiguration(x));
 
@@ -45,7 +43,7 @@
 
         private FluentConfiguration CreateFluentConfiguration(IContext context)
         {
-            var databaseProvider = context.GetInstance<IDatabaseProvider>();
+            var databaseProvider = context.GetInstance<IDatabaseAdapter>();
 
             //// TODO: get list of mappings assembly
             return Fluently

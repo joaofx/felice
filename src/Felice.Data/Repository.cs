@@ -1,14 +1,15 @@
 ﻿namespace Felice.Data
 {
     using System.Collections.Generic;
-    using Felice.Core.Model;
+    using Core;
+    using Core.Model;
     using NHibernate;
 
     public class Repository<T> : IRepository<T> where T : Entity
     {
-        public Repository(ISession session)
+        protected Repository()
         {
-            Session = session;
+            Session = Dependency.Resolve<ISession>();
         }
 
         protected ISession Session

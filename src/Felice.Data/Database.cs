@@ -58,13 +58,13 @@ namespace Felice.Data
         public static void MigrateToLastVersion()
         {
             //// TODO: separate schema methods in another class
-            var provider = Dependency.Resolve<IDatabaseProvider>();
+            var provider = Dependency.Resolve<IDatabaseAdapter>();
 
             Log.Framework.DebugFormat("Migrating database schema to last version");
 
             if (Database.Configuration.Migrations.Any() == false)
             {
-                Log.Framework.Warn("No assembly with migrations was found. Use Database.AddMappings(typeof(SomeMigration).Assembly);");
+                Log.Framework.Warn("No assembly with migrations was found. Use Database.AddMapping(typeof(SomeMigration).Assembly);");
             }
 
             foreach (var migration in Database.Configuration.Migrations)

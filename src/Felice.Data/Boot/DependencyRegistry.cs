@@ -6,7 +6,7 @@
     {
         public DependencyRegistry()
         {
-            this.Scan(x =>
+            Scan(x =>
             {
                 x.AssemblyContainingType<DependencyRegistry>();
                 x.WithDefaultConventions();
