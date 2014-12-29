@@ -3,7 +3,7 @@ using Felice.Data;
 
 namespace Demo.Repositories
 {
-    public class ProjectRepository : Repository<Project>
+    public class FoodRepository : Repository<Food>
     {
     }
 }

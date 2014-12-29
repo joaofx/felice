@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Food>
+
+<h2>Foods</h2>
+
+<p>
+    @Html.ActionLink("New Food", "New", "Food")
+</p>
+
+<table>
+    <thead> 
+        <tr>
+            <th>Name</th>
+            <th>Proteins</th>
+            <th>Carbs</th>
+            <th>Fats</th>
+            <th>Calories</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var food in Model)
+        {
+            <tr>
+                <td>@food.Name</td>
+                <td>@food.Proteins</td>
+                <td>@food.Carbs</td>
+                <td>@food.Fats</td>
+                <td>@food.Calories</td>
+                <td><a href="@Url.Action("Edit", "Food", new { id = food.Id })">Edit</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

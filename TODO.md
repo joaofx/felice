@@ -1,4 +1,7 @@
 
+Automapper form <--> entity
+Strongly Typed Action Links
+
 FluentValidation for validate Form/Input/Request
 MediaR to dispatch Command/Queries
 

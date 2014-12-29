@@ -1,0 +1,37 @@
+﻿@model EditFoodForm
+
+<h2>Foods</h2>
+
+@using (Html.BeginForm("Save", "Food"))
+{
+    @Html.HiddenFor(x => x.Id)
+    
+    <div class="field">
+        @Html.LabelFor(x => x.Name)<br />
+        @Html.TextBoxFor(x => x.Name)
+    </div>
+
+    <div class="field">
+        @Html.LabelFor(x => x.Calories)<br />
+        @Html.TextBoxFor(x => x.Calories)
+    </div>
+
+    <div class="field">
+        @Html.LabelFor(x => x.Proteins)<br />
+        @Html.TextBoxFor(x => x.Proteins)
+    </div>
+
+    <div class="field">
+        @Html.LabelFor(x => x.Carbs)<br />
+        @Html.TextBoxFor(x => x.Carbs)
+    </div>
+
+    <div class="field">
+        @Html.LabelFor(x => x.Fats)<br />
+        @Html.TextBoxFor(x => x.Fats)
+    </div>
+
+    <p>
+        @Html.Submit("Save")
+    </p>
+}

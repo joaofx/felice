@@ -2,6 +2,8 @@
 {
     public abstract class Entity
     { 
+        //// TODO: entities base with another Id type
+
         /// <summary>
         ///     To help ensure hashcode uniqueness, a carefully selected random number multiplier 
         ///     is used within the calculation.  Goodrich and Tamassia's Data Structures and
