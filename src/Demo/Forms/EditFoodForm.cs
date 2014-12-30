@@ -1,6 +1,9 @@
 ﻿namespace Demo.Forms
 {
-    public class EditFoodForm
+    using Boot;
+    using Models;
+
+    public class EditFoodForm : IMapFrom<Food>, IMapTo<Food>
     {
         public string Id { get; set; }
         public string Name { get; set; }

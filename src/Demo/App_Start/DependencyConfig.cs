@@ -14,7 +14,7 @@
 
             container.Configure(x => x.Scan(scan =>
             {
-                scan.AssembliesFromApplicationBaseDirectory();
+                scan.AssembliesFromApplicationBaseDirectory(assembly => assembly.FullName.EndsWith(".Tests") == false);
                 scan.LookForRegistries();
                 scan.WithDefaultConventions();
             }));

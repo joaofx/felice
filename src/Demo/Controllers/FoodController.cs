@@ -3,6 +3,7 @@
 namespace Demo.Controllers
 {
     using System;
+    using AutoMapper;
     using Felice.Mvc;
     using Forms;
     using Models;
@@ -45,16 +46,21 @@ namespace Demo.Controllers
         public ActionResult Save(EditFoodForm form)
         {
             return this.Handle(form)
-                .With(x => _foodRepository.Save(new Food
+                .With(x =>
                 {
-                    Name = form.Name,
-                    Calories = Convert.ToDecimal(form.Calories),
-                    Proteins = Convert.ToDecimal(form.Proteins),
-                    Carbs = Convert.ToDecimal(form.Carbs),
-                    Fats = Convert.ToDecimal(form.Fats),
-                    Id = Convert.ToInt64(form.Id)
+                    var food = Mapper.Map<Food>(form);
+                    _foodRepository.Save(food);
 
-                }))
+                    ////new Food
+                    ////{
+                    ////    Name = form.Name,
+                    ////    Calories = Convert.ToDecimal(form.Calories),
+                    ////    Proteins = Convert.ToDecimal(form.Proteins),
+                    ////    Carbs = Convert.ToDecimal(form.Carbs),
+                    ////    Fats = Convert.ToDecimal(form.Fats),
+                    ////    Id = Convert.ToInt64(form.Id)
+                    ////}
+                })
                 .OnFailure(x => View("Edit", form))
                 .OnSuccess(x => RedirectToAction("Index"), "Food {0} created", form.Name);
         }

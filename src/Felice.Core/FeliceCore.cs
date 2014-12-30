@@ -31,6 +31,13 @@
 
         public static void Boot()
         {
+            //// TODO: Fix not getting AutoMapperBoot
+            ////var configurationsBoot = Dependency.GetAll<IConfigurationBoot>();
+
+            ////foreach (var configurationBoot in configurationsBoot)
+            ////{
+            ////    configurationBoot.Execute();
+            ////}
         }
     }
 }

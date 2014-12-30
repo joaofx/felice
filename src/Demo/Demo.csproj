@@ -128,10 +128,14 @@
   <ItemGroup>
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Boot\AutoMapperBoot.cs" />
     <Compile Include="Boot\DatabaseRegistry.cs" />
+    <Compile Include="Boot\IHaveCustomMappings.cs" />
+    <Compile Include="Boot\IMapFrom.cs" />
     <Compile Include="Controllers\FoodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Forms\EditFoodForm.cs" />
+    <Compile Include="Boot\IMapTo.cs" />
     <Compile Include="Maps\FoodMap.cs" />
     <Compile Include="Migrations\201412282204_CreateFood.cs" />
     <Compile Include="Models\Food.cs" />

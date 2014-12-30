@@ -7,7 +7,6 @@
     using StructureMap;
     using StructureMap.Graph;
     using Tasks;
-    using WebDemo.Boot;
 
     /// <summary>
     /// http://crosscuttingconcerns.com/StructureMap-3---some-changes-Ive-noticed
@@ -34,7 +33,7 @@
                 scan.AddAllTypesOf<IFeliceTask>();
                 scan.AddAllTypesOf<IConfigurationBoot>();
             }));
-        } 
+        }
 
         public static T Resolve<T>()
         {

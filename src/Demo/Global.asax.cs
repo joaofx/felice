@@ -3,6 +3,7 @@ using System.Web.Routing;
 
 namespace Demo
 {
+    using Boot;
     using Felice.Core;
     using Felice.Core.Logs;
     using Felice.Data;
@@ -26,6 +27,8 @@ namespace Demo
             //// Boot libraries
             //// Force validate nhibernate mappings before load the application
             FeliceCore.Boot();
+
+            new AutoMapperBoot().Execute();
 
             Database.MigrateToLastVersion();
         }

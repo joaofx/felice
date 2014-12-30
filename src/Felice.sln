@@ -32,6 +32,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Felice.IntegrationTests", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo", "Demo\Demo.csproj", "{063C48AF-5E6A-4410-8E7C-046F31722FEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Demo.AcceptanceTests", "Demo.AcceptanceTests\Demo.AcceptanceTests.csproj", "{F9749769-C617-49A0-9C05-EA48D375F6E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -132,6 +134,16 @@ Global
 		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{063C48AF-5E6A-4410-8E7C-046F31722FEE}.Release|x86.ActiveCfg = Release|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{F9749769-C617-49A0-9C05-EA48D375F6E4}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -141,5 +153,6 @@ Global
 		{B3D6A20A-C762-4074-96F4-CE6D6D662DA8} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
 		{DBB478C4-F395-4533-B8F1-DF1C4915FD8D} = {9B742AE2-95CF-417C-9F93-DFB304BB42A8}
 		{063C48AF-5E6A-4410-8E7C-046F31722FEE} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
+		{F9749769-C617-49A0-9C05-EA48D375F6E4} = {7F43D459-A1EE-4915-AE42-DE1FB95ECAA2}
 	EndGlobalSection
 EndGlobal

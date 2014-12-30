@@ -1,0 +1,1 @@
+2014-12-29 14:16:33,232; 8    ; DEBUG; SELECT this_.id as id0_0_, this_.name as name0_0_, this_.calories as calories0_0_, this_.carbs as carbs0_0_, this_.fats as fats0_0_, this_.proteins as proteins0_0_ FROM food this_ 

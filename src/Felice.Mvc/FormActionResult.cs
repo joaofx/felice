@@ -5,7 +5,7 @@
 
     public class FormActionResult<T> : ActionResult
     {
-        private readonly T form;
+        private readonly T _form;
         public Action<T> Handler { get; set; }
         public string SuccessMessage;
         public Func<T, ActionResult> SuccessResult;
@@ -13,7 +13,7 @@
 
         public FormActionResult(T form)
         {
-            this.form = form;
+            _form = form;
         }
 
         public FormActionResult(
@@ -22,10 +22,10 @@
             Func<T, ActionResult> successResult,
             Func<T, ActionResult> failureResult)
         {
-            this.form = form;
-            this.Handler = handler;
-            this.SuccessResult = successResult;
-            this.FailureResult = failureResult;
+            _form = form;
+            Handler = handler;
+            SuccessResult = successResult;
+            FailureResult = failureResult;
         }
 
         public override void ExecuteResult(ControllerContext context)
@@ -34,25 +34,28 @@
 
             if (viewData.ModelState.IsValid == false)
             {
-                this.FailureResult(this.form).ExecuteResult(context);
+                FailureResult(_form).ExecuteResult(context);
             }
             else
             {
                 try
                 {
-                    this.Handler(this.form);
-                    this.SuccessResult(this.form).ExecuteResult(context);
+                    Handler(_form);
+                    SuccessResult(_form).ExecuteResult(context);
 
-                    if (string.IsNullOrEmpty(this.SuccessMessage) == false)
+                    if (string.IsNullOrEmpty(SuccessMessage) == false)
                     {
-                        context.Controller.Success(this.SuccessMessage);    
+                        context.Controller.Success(SuccessMessage);    
                     }
                 }
                 catch (Exception exception)
                 {
                     context.Controller.Error(exception.Message);
+
+                    //// TODO: this rollback is smell?
                     context.Controller.SetShouldRollback();
-                    this.FailureResult(this.form).ExecuteResult(context);
+
+                    FailureResult(_form).ExecuteResult(context);
                 }
             }
         }
