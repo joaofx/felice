@@ -122,6 +122,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\App.css" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -133,6 +134,7 @@
     <Compile Include="Boot\IHaveCustomMappings.cs" />
     <Compile Include="Boot\IMapFrom.cs" />
     <Compile Include="Controllers\FoodController.cs" />
+    <Compile Include="Controllers\DiaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Forms\EditFoodForm.cs" />
     <Compile Include="Boot\IMapTo.cs" />
@@ -153,6 +155,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Food\Index.cshtml" />
     <Content Include="Views\Food\Edit.cshtml" />
+    <Content Include="Views\Diary\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,0 +1,80 @@
+﻿* {
+	border: 0;
+	margin: 0;
+	outline: 0;
+	padding: 0;
+	vertical-align: baseline;
+}
+
+body {
+	font-size: 18px;
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	color: #393939;
+	background-color: #ffffff;
+	font-weight: 400;
+    margin: 20px;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h1, h2, h3, h4 {
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	color: #393939;
+	font-weight: 300;
+}
+
+a {
+	color: #448ac9;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+#page {
+	display: block;
+	width: 960px;
+	margin: 40px auto;
+}
+
+#resume, #links {
+	margin: 30px;
+}
+
+#resume p {
+	line-height: 1.55em;
+	margin-bottom: 1em;
+	font-weight: 300;
+	font-size: 1.2em;
+}
+
+#resume {
+	border-bottom: 1px #f1f1f1 solid;
+}
+
+#links {
+	margin-bottom: 40px;
+}
+
+#links ul {
+	display: block !important;
+	list-style: none;
+}
+
+#links ul li {
+	padding-left: 15px;
+	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+	font-size: 15px;
+	float: left;
+}
+
+#menu {
+    border-bottom: 1px dashed #e1e1e1;
+}
+
+#content {
+    margin: 10px;
+}
