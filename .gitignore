@@ -156,3 +156,7 @@ $RECYCLE.BIN/
 
 /src/*.userprefs
 /src/WebDemo/Logs
+
+bower_components
+node_modules
+Logs

@@ -6,11 +6,13 @@
     <title>Humble Plan</title>
     
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,400italic' rel='stylesheet' type='text/css'>
-    <link href="@Url.Content("~/Content/App.css")" rel="stylesheet" type="text/css"/>
-
+    <link href="@Styles.Render("~/Content/app.css")" rel="stylesheet" type="text/css"/>
+    
 </head>
 <body>
-    <h2>Humble Plan</h2>
+    <div id="header">
+        <h2>Humble Plan</h2>
+    </div>
 
     <div id="menu">
         <p>
@@ -19,13 +21,34 @@
         </p>    
     </div>
     
-    <div id="content">
-        @Html.GetSuccess("alert alert-success")
-        @Html.GetError("alert alert-error")
-        @Html.GetAlert("alert alert-block")
-        @Html.ShowValidationSummary("alert alert-error")
+    <div id="main">
+        <div id="content">
+            @Html.GetSuccess("alert alert-success")
+            @Html.GetError("alert alert-error")
+            @Html.GetAlert("alert alert-block")
+            @Html.ShowValidationSummary("alert alert-error")
 
-        @RenderBody()
+            @RenderBody()
+            
+            <div class="meal">Pre-trainning</div>
+            <div class="meal">Pos-trainning</div>
+            <div class="meal">Lunch</div>
+            <div class="meal">Dinner</div>
+            <div class="meal">Pre-sleep</div>
+        </div>
+        
+        <div id="sidebar">
+            <form>
+                <input name="search" type="text" placeholder="Search..." />
+            </form>
+        </div>
     </div>
+    
+    <div id="footer">
+        
+    </div>
+    
+<script type="text/javascript" src="@Scripts.Render("~/Content/app.js")"></script>
+
 </body>
 </html>

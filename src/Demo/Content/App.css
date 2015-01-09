@@ -1,12 +1,4 @@
-﻿* {
-	border: 0;
-	margin: 0;
-	outline: 0;
-	padding: 0;
-	vertical-align: baseline;
-}
-
-body {
+﻿body {
 	font-size: 18px;
 	font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
 	color: #393939;
@@ -77,4 +69,8 @@ a:hover {
 
 #content {
     margin: 10px;
+}
+
+.meal {
+    font-weight: bold;
 }
