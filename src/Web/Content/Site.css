@@ -1,0 +1,41 @@
+﻿a {
+    color: #00a1de;
+}
+
+a:hover {
+    color: #d5740f; 
+}
+.wrapper {
+    font-family: "Lucida Sans Unicode","Lucida Grande","Helvetica Neue","Helvetica",verdana,arial,sans-serif;
+    color: #00a1de;
+}
+
+.menu {
+    padding: 0px;
+}
+
+.menu > ul {
+    list-style: none;
+    overflow: hidden;
+    font-size: 15px;
+    padding: 0;
+}
+
+.menu > ul > li {
+    float: left;
+    line-height: 29px;
+    margin-right: 17px;
+    white-space: nowrap;
+}
+
+.product .name {
+    font-size: 1.17em;
+}
+
+.product .price {
+    color: #d5740f; 
+}
+
+.footer {
+    min-height: 200px;
+}

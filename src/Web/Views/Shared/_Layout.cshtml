@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificados</title>
+    
+    <link href="~/Content/simplegrid.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <div class="grid menu">
+            <ul>
+                <li><a href="#">Móveis (5)</a></li>
+                <li><a href="#">Eletrônicos (10)</a></li>
+                <li><a href="#">Livros (11)</a></li>
+            </ul>
+        </div>
+
+        @RenderBody()
+        
+        <div class="grid footer">
+            
+        </div>
+    </div>
+    
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
