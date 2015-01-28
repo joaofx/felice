@@ -1,0 +1,26 @@
+﻿@model Web.Commands.EditProductCommand
+
+<div class="grid grid-pad">
+        
+    @using (Html.BeginForm("Save", "Product"))
+    {
+        @Html.HiddenFor(x => x.Id)
+        
+        <div>
+            @Html.LabelFor(x => x.Name)
+            <br/>
+            @Html.TextBoxFor(x => x.Name)
+        </div>
+
+        <div>
+            @Html.LabelFor(x => x.Price)
+            <br />
+            @Html.TextBoxFor(x => x.Price)
+        </div>
+        
+        <div>
+            @Html.Submit("Save")
+        </div>
+    }
+
+</div>
