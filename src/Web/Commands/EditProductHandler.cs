@@ -4,11 +4,11 @@
     using MediatR;
     using Models;
 
-    public class EditProductCommandHandler : IRequestHandler<EditProductCommand, Product>
+    public class EditProductHandler : IRequestHandler<EditProductCommand, Product>
     {
         private readonly ProductRepository _productRepository;
 
-        public EditProductCommandHandler(ProductRepository productRepository)
+        public EditProductHandler(ProductRepository productRepository)
         {
             _productRepository = productRepository;
         }

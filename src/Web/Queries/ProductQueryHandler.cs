@@ -5,7 +5,7 @@ namespace Web.Queries
     using MediatR;
     using Models;
 
-    public class ProductQueryHandler : IRequestHandler<ProductsQuery, IEnumerable<Product>>
+    public class ProductQueryHandler : IRequestHandler<ProductQuery, IEnumerable<Product>>
     {
         private readonly ProductRepository _productRepository;
 
@@ -14,7 +14,7 @@ namespace Web.Queries
             _productRepository = productRepository;
         }
 
-        public IEnumerable<Product> Handle(ProductsQuery message)
+        public IEnumerable<Product> Handle(ProductQuery message)
         {
             return _productRepository.All();
         }

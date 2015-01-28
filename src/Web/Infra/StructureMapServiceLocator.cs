@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Microsoft.Practices.ServiceLocation;
+using StructureMap;
 
-namespace Web.Helpers
+namespace Web.Infra
 {
-    using Microsoft.Practices.ServiceLocation;
-    using StructureMap;
-
     public class StructureMapServiceLocator : ServiceLocatorImplBase
     {
         private readonly IContainer _container;

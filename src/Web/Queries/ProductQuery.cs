@@ -5,7 +5,7 @@ namespace Web.Queries
     using MediatR;
     using Models;
 
-    public class ProductsQuery : IRequest<IEnumerable<Product>>
+    public class ProductQuery : IRequest<IEnumerable<Product>>
     {
     }
 }

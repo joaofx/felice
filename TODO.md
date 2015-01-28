@@ -1,4 +1,6 @@
 
+Generic variance?
+
 Automapper form <--> entity
 Strongly Typed Action Links
 
