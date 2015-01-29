@@ -1,4 +1,6 @@
-﻿namespace Web.Commands
+﻿using NHibernate;
+
+namespace Web.Commands
 {
     using Felice.Core;
     using MediatR;
@@ -7,10 +9,12 @@
     public class EditProductHandler : IRequestHandler<EditProductCommand, Product>
     {
         private readonly ProductRepository _productRepository;
+        private readonly ISession _session;
 
-        public EditProductHandler(ProductRepository productRepository)
+        public EditProductHandler(ProductRepository productRepository, ISession session)
         {
             _productRepository = productRepository;
+            _session = session;
         }
 
         public Product Handle(EditProductCommand message)
@@ -23,6 +27,7 @@
             };
 
             _productRepository.Save(product);
+            _session.Save(product);
 
             return product;
         }

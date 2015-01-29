@@ -1,26 +1,22 @@
 ﻿@model Web.Commands.EditProductCommand
 
-<div class="grid grid-pad">
-        
+<div class="row">
+    
     @using (Html.BeginForm("Save", "Product"))
     {
         @Html.HiddenFor(x => x.Id)
         
-        <div>
+        <div class="form-group">
             @Html.LabelFor(x => x.Name)
-            <br/>
-            @Html.TextBoxFor(x => x.Name)
-        </div>
-
-        <div>
-            @Html.LabelFor(x => x.Price)
-            <br />
-            @Html.TextBoxFor(x => x.Price)
+            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
         </div>
         
-        <div>
-            @Html.Submit("Save")
+        <div class="form-group">
+            @Html.LabelFor(x => x.Price)
+            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
         </div>
+        
+        <input type="submit" value="Save" class="btn btn-primary"/>
     }
 
 </div>

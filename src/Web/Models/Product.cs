@@ -1,10 +1,11 @@
-﻿namespace Web.Models
+﻿using Felice.Core.Model;
+
+namespace Web.Models
 {
-    public class Product
+    public class Product : Entity
     {
-        public string Name { get; set; }
-        public decimal Price { get; set; }
-        public string Image { get; set; }
-        public long Id { get; set; }
+        public virtual string Name { get; set; }
+        public virtual decimal Price { get; set; }
+        public virtual string Image { get; set; }
     }
 }

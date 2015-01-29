@@ -1,20 +1,17 @@
 namespace Felice.Data
 {
     using System;
-    using System.Collections.Generic;
     using System.Linq;
-    using System.Reflection;
     using Core;
     using Felice.Core.Logs;
     using FluentMigrator.Runner;
     using FluentMigrator.Runner.Announcers;
     using FluentMigrator.Runner.Initialization;
     using FluentMigrator.Runner.Processors;
-    using NHibernate.Tool.hbm2ddl;
 
     public class Database
     {
-        private static bool initialized;
+        private static bool _initialized;
 
         static Database()
         {
@@ -37,14 +34,14 @@ namespace Felice.Data
 
         public static void Initialize()
         {
-            if (initialized == false)
+            if (_initialized == false)
             {
                 Log.Framework.DebugFormat("Initializing Database");
 
                 //Log.Framework.DebugFormat("Database provider: {0}", Provider.GetType().FullName);
                 //Log.Framework.DebugFormat("Database Connection: {0}", AppSettings.ConnectionString);
 
-                initialized = true;
+                _initialized = true;
             }
         }
 

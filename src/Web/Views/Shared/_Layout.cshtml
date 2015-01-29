@@ -1,35 +1,42 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classificados</title>
-    
-    <link href="~/Content/simplegrid.css" rel="stylesheet" type="text/css" />
-    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>4 Sale</title>
 
+    @Styles.Render("~/Content/app.css")
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
     
-    <div class="wrapper">
+    <div class="container">
+        <ul class="nav nav-pills">
+            <li><a href="#">Móveis (5)</a></li>
+            <li><a href="#">Eletrônicos (10)</a></li>
+            <li><a href="#">Livros (11)</a></li>
 
-        <div class="grid menu">
-            <ul>
-                <li><a href="#">Móveis (5)</a></li>
-                <li><a href="#">Eletrônicos (10)</a></li>
-                <li><a href="#">Livros (11)</a></li>
-            </ul>
+            <li><a href="@Url.Action("New", "Product")" class="action">New Product</a></li>
+        </ul>
+
+        <div class="content">
+            @Html.GetSuccess("alert alert-success")
+            @Html.GetError("alert alert-warning")
+            @Html.GetAlert("alert alert-block")
+            @Html.ShowValidationSummary("alert alert-warning")
+
+            @RenderBody()
         </div>
-
-        @RenderBody()
         
-        <div class="grid footer">
-            
-        </div>
     </div>
-    
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    @Scripts.Render("~/Content/app.js")
+
 </body>
 </html>

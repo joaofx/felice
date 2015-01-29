@@ -15,9 +15,9 @@ namespace Felice.Data.Boot
         public NHibernateRegistry()
         {
             //// TODO: read provider connectionString in app.config
-            For<IDatabaseAdapter>()
-                .Singleton()
-                .Use<PostgreDatabaseAdapter>();
+            //For<IDatabaseAdapter>()
+            //    .Singleton()
+            //    .Use<PostgreDatabaseAdapter>();
 
             For<FluentConfiguration>().Singleton().Use(x => CreateFluentConfiguration(x));
 

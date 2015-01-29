@@ -5,27 +5,9 @@
 a:hover {
     color: #d5740f; 
 }
-.wrapper {
+
+.container * {
     font-family: "Lucida Sans Unicode","Lucida Grande","Helvetica Neue","Helvetica",verdana,arial,sans-serif;
-    color: #00a1de;
-}
-
-.menu {
-    padding: 0px;
-}
-
-.menu > ul {
-    list-style: none;
-    overflow: hidden;
-    font-size: 15px;
-    padding: 0;
-}
-
-.menu > ul > li {
-    float: left;
-    line-height: 29px;
-    margin-right: 17px;
-    white-space: nowrap;
 }
 
 .product .name {
@@ -38,4 +20,12 @@ a:hover {
 
 .footer {
     min-height: 200px;
+}
+
+.action {
+    color: #3cb371;
+}
+
+.content {
+    margin: 20px 50px 20px 50px;
 }

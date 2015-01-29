@@ -26,11 +26,5 @@ namespace Web.Tests
                 Price = "259,99"
             });
         }
-
-        [Test]
-        public void Should_get_products()
-        {
-            var product = _mediator.Send(new ProductQuery());
-        }
     }
 }

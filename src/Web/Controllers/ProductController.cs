@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using Felice.Mvc;
 
 namespace Web.Controllers
 {
@@ -28,12 +29,10 @@ namespace Web.Controllers
         [HttpPost]
         public ActionResult Save(EditProductCommand command)
         {
-            /// https://github.com/jbogard/MediatR/issues/11
-            /// http://lostechies.com/jimmybogard/2014/09/09/tackling-cross-cutting-concerns-with-a-mediator-pipeline/
-            /// http://lostechies.com/jimmybogard/2013/12/19/put-your-controllers-on-a-diet-posts-and-commands/
-            
-            _mediator.Send(command);
-            return RedirectToAction("Index");
+            return this.Handle(command)
+                .With(x => _mediator.Send(command))
+                .OnFailure(x => View("Edit", command))
+                .OnSuccess(x => RedirectToAction("Index"), "Food {0} created", command.Name);
         }
     }
 }
