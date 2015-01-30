@@ -13,7 +13,9 @@
                     </a>
 
 
-                    <div class="name"><a href="#">@product.Name</a></div>
+                    <div class="name">
+                        <a href="@Url.Action("Show", "Product", new { Id = product.Id })">@product.Name</a>
+                    </div>
                     <div class="price">R$ @product.Price</div>
                 </div>
             </div>

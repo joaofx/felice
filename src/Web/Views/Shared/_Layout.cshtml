@@ -18,11 +18,13 @@
     
     <div class="container">
         <ul class="nav nav-pills">
-            <li><a href="#">Móveis (5)</a></li>
-            <li><a href="#">Eletrônicos (10)</a></li>
-            <li><a href="#">Livros (11)</a></li>
+            <li><a href="@Url.Action("Index", "Product")">Produtos</a></li>
 
-            <li><a href="@Url.Action("New", "Product")" class="action">New Product</a></li>
+            @*<li><a href="#">Móveis (5)</a></li>
+            <li><a href="#">Eletrônicos (10)</a></li>
+            <li><a href="#">Livros (11)</a></li>*@
+
+            <li><a href="@Url.Action("New", "Product")" class="action">Novo Produto</a></li>
         </ul>
 
         <div class="content">

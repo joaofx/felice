@@ -8,12 +8,10 @@ namespace Web.Commands
 
     public class EditProductHandler : IRequestHandler<EditProductCommand, Product>
     {
-        private readonly ProductRepository _productRepository;
         private readonly ISession _session;
 
-        public EditProductHandler(ProductRepository productRepository, ISession session)
+        public EditProductHandler(ISession session)
         {
-            _productRepository = productRepository;
             _session = session;
         }
 
@@ -26,8 +24,7 @@ namespace Web.Commands
                 Image = "https://res.cloudinary.com/enjoei/image/upload/c_thumb,f_auto,g_center,h_294,q_80,w_276/fmi5feex8yylxst0i5yq.jpg"
             };
 
-            _productRepository.Save(product);
-            _session.Save(product);
+            _session.SaveOrUpdate(product);
 
             return product;
         }

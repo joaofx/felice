@@ -18,7 +18,12 @@ namespace Web.Controllers
 
         public ActionResult Index()
         {
-            return View(_mediator.Send(new ProductQuery()));
+            return View(_mediator.Send(new ListProductQuery()));
+        }
+
+        public ActionResult Show(long id)
+        {
+            return View(_mediator.Send(new ShowProductQuery { Id = id }));
         }
 
         public ActionResult New()

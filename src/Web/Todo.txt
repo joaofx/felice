@@ -1,3 +1,11 @@
-﻿Strongly typed Action links
+﻿>> FEATURES
+Add product with one image
+Add many images to product
+Categorize product
+Show not sold products first
+
+>> TECH
+Strongly typed Action links
 Template fields editor
 FluentNHibernate Auto mapping
+Add ValidateAntiForgeryToken on forms

@@ -7,6 +7,9 @@ using Felice.Data;
 
 namespace Web
 {
+    using System.Data.SqlServerCe;
+    using System.IO;
+
     public class MvcApplication : System.Web.HttpApplication
     {
         protected void Application_Start()
@@ -19,6 +22,11 @@ namespace Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             FeliceCore.Boot();
+
+            //if (File.Exists("4sale_dev.sdf")) File.Delete("4sale_dev.sdf");
+
+            new SqlCeEngine(AppSettings.ConnectionString).CreateDatabase();
+
             Database.MigrateToLastVersion();
         }
     }

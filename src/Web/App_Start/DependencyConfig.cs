@@ -28,7 +28,7 @@ namespace Web
                     scan.AssembliesFromApplicationBaseDirectory(assembly => assembly.FullName.EndsWith(".Tests") == false);
                     scan.LookForRegistries();
 
-                    scan.AssemblyContainingType<ProductQuery>();
+                    scan.AssemblyContainingType<ListProductQuery>();
                     scan.AssemblyContainingType<IMediator>();
                     scan.WithDefaultConventions();
                     scan.AddAllTypesOf(typeof(IRequestHandler<,>));
@@ -45,13 +45,8 @@ namespace Web
 
             var serviceLocator = new StructureMapServiceLocator(Container);
             var serviceLocatorProvider = new ServiceLocatorProvider(() => serviceLocator);
-            var repository = new ProductRepository();
 
-            Container.Configure(cfg =>
-            {
-                cfg.For<ServiceLocatorProvider>().Use(serviceLocatorProvider);
-                cfg.For<ProductRepository>().Use(repository);
-            });
+            Container.Configure(cfg => cfg.For<ServiceLocatorProvider>().Use(serviceLocatorProvider));
 
             DependencyResolver.SetResolver(new StructureMapDependencyResolver(Container));
             Dependency.SetupContainer(Container);
