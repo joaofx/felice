@@ -1,21 +1,20 @@
-﻿using Felice.Data;
-using FluentMigrator.Runner.Processors;
-using FluentNHibernate.Cfg.Db;
-
-namespace Web.Infra
+﻿namespace Web.Infra
 {
-    using FluentMigrator.Runner.Processors.SqlServer;
+    using Felice.Data;
+    using FluentMigrator.Runner.Processors;
+    using FluentMigrator.Runner.Processors.SQLite;
+    using FluentNHibernate.Cfg.Db;
 
     public class SqLiteDatabaseAdapter : IDatabaseAdapter
     {
         public IPersistenceConfigurer GetHibernateDriver(string connectionString)
         {
-            return MsSqlCeConfiguration.Standard.ConnectionString(connectionString);
+            return SQLiteConfiguration.Standard.ConnectionString(connectionString);
         }
 
         public MigrationProcessorFactory GetMigratorDriver()
         {
-            return new SqlServerCeProcessorFactory();
+            return new SqliteProcessorFactory();
         }
     }
 }

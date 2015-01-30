@@ -1,7 +1,7 @@
-﻿using FluentMigrator;
-
-namespace Web.Infra.Migrations
+﻿namespace Web.Infra.Migrations
 {
+    using FluentMigrator;
+
     [Migration(201501291903)]
     public class CreateProduct : AutoReversingMigration
     {

@@ -1,9 +1,9 @@
 ﻿namespace Web.Queries
 {
     using System.Collections.Generic;
-    using NHibernate;
     using MediatR;
     using Models;
+    using NHibernate;
 
     public class ListProductHandler : IRequestHandler<ListProductQuery, IEnumerable<Product>>
     {

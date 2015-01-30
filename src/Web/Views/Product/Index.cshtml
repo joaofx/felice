@@ -1,20 +1,21 @@
-﻿@model IEnumerable<Web.Models.Product>
+﻿@using Web.Models
+@model IEnumerable<Web.Models.Product>
 
 @foreach (var slices in Model.EachSlice(3))
 {
     <div class="row">
         
-        @foreach (var product in slices)
+        @foreach (Product product in slices)
         {
             <div class="col-lg-4">
                 <div class="product">
-                    <a href="@Url.Action("Show", "Product", new { Id = product.Id })">
-                        <img alt="tênis prada" itemprop="image" src="@product.Image">
+                    <a href="@Url.Action("Show", "Product", new {product.Id})">
+                        <img alt="tênis prada" itemprop="image" src="@product.MainImage">
                     </a>
 
 
                     <div class="name">
-                        <a href="@Url.Action("Show", "Product", new { Id = product.Id })">@product.Name</a>
+                        <a href="@Url.Action("Show", "Product", new {product.Id})">@product.Name</a>
                     </div>
                     <div class="price">R$ @product.Price</div>
                 </div>
@@ -22,4 +23,4 @@
         }
 
     </div>
-}   
+}

@@ -2,25 +2,20 @@
 
 <div class="row">
     
-    @using (Html.BeginForm("Save", "Product", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Save", "Product", FormMethod.Post, new {enctype = "multipart/form-data"}))
     {
         @Html.HiddenFor(x => x.Id)
-        
+
         <div class="form-group">
             @Html.LabelFor(x => x.Name)
-            @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.Name, new {@class = "form-control"})
         </div>
-        
+
         <div class="form-group">
             @Html.LabelFor(x => x.Price)
-            @Html.TextBoxFor(x => x.Price, new { @class = "form-control" })
+            @Html.TextBoxFor(x => x.Price, new {@class = "form-control"})
         </div>
-
-        <div class="form-group">
-            @Html.LabelFor(x => x.Image)
-            <input type="file" name="@Html.NameFor(x => x.Image)">
-        </div>
-
+        
         <input type="submit" value="Save" class="btn btn-primary"/>
     }
 

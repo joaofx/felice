@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-
-namespace Web.Queries
+﻿namespace Web.Queries
 {
+    using System.Collections.Generic;
     using MediatR;
     using Models;
 

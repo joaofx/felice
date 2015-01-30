@@ -1,10 +1,9 @@
-﻿using NHibernate;
-
-namespace Web.Commands
+﻿namespace Web.Commands
 {
     using Felice.Core;
     using MediatR;
     using Models;
+    using NHibernate;
 
     public class EditProductHandler : IRequestHandler<EditProductCommand, Product>
     {
@@ -19,9 +18,10 @@ namespace Web.Commands
         {
             var product = new Product
             {
-                Name = message.Name, 
+                Name = message.Name,
                 Price = message.Price.ToDecimal2(),
-                Image = "https://res.cloudinary.com/enjoei/image/upload/c_thumb,f_auto,g_center,h_294,q_80,w_276/fmi5feex8yylxst0i5yq.jpg"
+                MainImage =
+                    "https://res.cloudinary.com/enjoei/image/upload/c_thumb,f_auto,g_center,h_294,q_80,w_276/fmi5feex8yylxst0i5yq.jpg"
             };
 
             _session.SaveOrUpdate(product);

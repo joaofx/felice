@@ -1,16 +1,14 @@
-﻿using System.Web.Mvc;
-using System.Web.Optimization;
-using System.Web.Routing;
-using Felice.Core;
-using Felice.Core.Logs;
-using Felice.Data;
-
-namespace Web
+﻿namespace Web
 {
-    using System.Data.SqlServerCe;
-    using System.IO;
+    using System.Web;
+    using System.Web.Mvc;
+    using System.Web.Optimization;
+    using System.Web.Routing;
+    using Felice.Core;
+    using Felice.Core.Logs;
+    using Felice.Data;
 
-    public class MvcApplication : System.Web.HttpApplication
+    public class MvcApplication : HttpApplication
     {
         protected void Application_Start()
         {
@@ -22,10 +20,6 @@ namespace Web
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
             FeliceCore.Boot();
-
-            //if (File.Exists("4sale_dev.sdf")) File.Delete("4sale_dev.sdf");
-
-            new SqlCeEngine(AppSettings.ConnectionString).CreateDatabase();
 
             Database.MigrateToLastVersion();
         }

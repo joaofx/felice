@@ -1,9 +1,9 @@
-﻿using System.Web.Mvc;
-using Felice.Mvc;
-
-namespace Web.Controllers
+﻿namespace Web.Controllers
 {
+    using System;
+    using System.Web.Mvc;
     using Commands;
+    using Felice.Mvc;
     using MediatR;
     using Queries;
 
@@ -23,7 +23,7 @@ namespace Web.Controllers
 
         public ActionResult Show(long id)
         {
-            return View(_mediator.Send(new ShowProductQuery { Id = id }));
+            return View(_mediator.Send(new ShowProductQuery {Id = id}));
         }
 
         public ActionResult New()
@@ -31,13 +31,25 @@ namespace Web.Controllers
             return View("Edit", new EditProductCommand());
         }
 
+        public ActionResult AddImage()
+        {
+            return View("Edit", new AddImageProductCommand());
+        }
+
         [HttpPost]
         public ActionResult Save(EditProductCommand command)
         {
-            return this.Handle(command)
-                .With(x => _mediator.Send(command))
-                .OnFailure(x => View("Edit", command))
-                .OnSuccess(x => RedirectToAction("Index"), "Food {0} created", command.Name);
+            try
+            {
+                var product = _mediator.Send(command);
+                this.Success(string.Format("Food {0} created", command.Name));
+
+                return RedirectToAction("Show", "Product", new {product.Id});
+            }
+            catch (Exception)
+            {
+                return View("Edit", command);
+            }
         }
     }
 }

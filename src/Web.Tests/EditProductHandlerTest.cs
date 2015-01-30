@@ -1,13 +1,11 @@
 ﻿using MediatR;
 using NUnit.Framework;
+using Should;
 using Web.Commands;
 
 namespace Web.Tests
 {
-    using System.Data.SqlServerCe;
-    using System.IO;
     using System.Web;
-    using Felice.Core;
     using Felice.Data;
     using FluentValidation;
     using NSubstitute;
@@ -23,22 +21,21 @@ namespace Web.Tests
             DependencyConfig.RegisterDependencies();
             _mediator = DependencyConfig.Container.GetInstance<IMediator>();
 
-            if (File.Exists("4sale_test.sdf")) File.Delete("4sale_test.sdf");
-
-            new SqlCeEngine(AppSettings.ConnectionString).CreateDatabase();
-
             Database.MigrateToLastVersion();
         }
 
         [Test]
         public void Should_handle_command()
         {
-            _mediator.Send(new EditProductCommand()
+            var product = _mediator.Send(new EditProductCommand()
             {
                 Name = "Notebook Acer Aspiron",
                 Price = "290,90",
                 Image = Substitute.For<HttpPostedFileBase>()
             });
+
+            product.Name.ShouldEqual("Notebook Acer Aspiron");
+            product.Price.ShouldEqual(290.9m);
         }
 
         [Test]

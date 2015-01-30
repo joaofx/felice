@@ -1,16 +1,32 @@
 ﻿@model Web.Models.Product
 
-<div class="row">
+<div class="row product">
+    <h3>@Model.Name</h3>
+</div>
+
+<div class="row product">
         
-    <div class="col-lg-6">
-        <div class="product">
-            <div class="name">@Model.Name</div>
-            <div class="price">R$ @Model.Price</div>
+    <div class="col-lg-4">
+        <h4 class="price">R$ @Model.Price</h4>
+    </div>
+
+    <div class="col-lg-8">
+        
+        <div>
+            <a href="@Url.Action("AddImage", "Product", new { @Model.Id }))">Add Image</a>
         </div>
-    </div>
+        
+        <div>
+            @if (Model.HasImage)
+            {
+                <img alt="@Model.Name" itemprop="image" src="@Model.MainImage">
+            }
+            else
+            {
+                <img alt="@Model.Name" itemprop="image" src="@Url.Content("~/Content/Images/no-image.png")">
+            }
+        </div>
 
-    <div class="col-lg-6">
-        <img alt="tênis prada" itemprop="image" src="@Model.Image">
     </div>
-
+    
 </div>

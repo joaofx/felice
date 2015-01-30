@@ -1,10 +1,12 @@
-﻿using System.Linq;
-using FluentValidation;
-using MediatR;
-
-namespace Web.Infra
+﻿namespace Web.Infra
 {
-    public class ValidatorHandler<TRequest, TResponse> : IRequestHandler<TRequest, TResponse> 
+    using System.Collections.Generic;
+    using System.Linq;
+    using FluentValidation;
+    using FluentValidation.Results;
+    using MediatR;
+
+    public class ValidatorHandler<TRequest, TResponse> : IRequestHandler<TRequest, TResponse>
         where TRequest : IRequest<TResponse>
     {
         private readonly IRequestHandler<TRequest, TResponse> _inner;
@@ -20,7 +22,7 @@ namespace Web.Infra
         {
             var context = new ValidationContext(message);
 
-            var failures = _validators
+            List<ValidationFailure> failures = _validators
                 .Select(x => x.Validate(context))
                 .SelectMany(x => x.Errors)
                 .Where(x => x != null)

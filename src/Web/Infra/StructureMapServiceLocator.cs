@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Practices.ServiceLocation;
-using StructureMap;
-
-namespace Web.Infra
+﻿namespace Web.Infra
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using Microsoft.Practices.ServiceLocation;
+    using StructureMap;
+
     public class StructureMapServiceLocator : ServiceLocatorImplBase
     {
         private readonly IContainer _container;
@@ -25,8 +25,8 @@ namespace Web.Infra
             if (string.IsNullOrEmpty(key))
             {
                 return serviceType.IsAbstract || serviceType.IsInterface
-                           ? _container.TryGetInstance(serviceType)
-                           : _container.GetInstance(serviceType);
+                    ? _container.TryGetInstance(serviceType)
+                    : _container.GetInstance(serviceType);
             }
 
             return _container.GetInstance(serviceType, key);

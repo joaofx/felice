@@ -1,8 +1,8 @@
-﻿using FluentNHibernate.Mapping;
-using Web.Models;
-
-namespace Web.Infra.Maps
+﻿namespace Web.Infra.Maps
 {
+    using FluentNHibernate.Mapping;
+    using Models;
+
     public class ProductMap : ClassMap<Product>
     {
         public ProductMap()
