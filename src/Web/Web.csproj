@@ -157,8 +157,10 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\DependencyConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Commands\AddImageProductHandler.cs" />
     <Compile Include="Commands\EditProductHandler.cs" />
     <Compile Include="Commands\EditProductCommand.cs" />
+    <Compile Include="Commands\AddImageProductCommand.cs" />
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Infra\Boot\DatabaseRegistry.cs" />
     <Compile Include="Infra\Maps\ProductMap.cs" />
@@ -170,6 +172,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ProductImage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\ListProductHandler.cs" />
     <Compile Include="Queries\ListProductQuery.cs" />
@@ -184,6 +187,7 @@
     <Content Include="Views\Product\Index.cshtml" />
     <Content Include="Views\Product\Edit.cshtml" />
     <Content Include="Views\Product\Show.cshtml" />
+    <Content Include="Views\Product\AddImage.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -193,7 +197,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Features\Products\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Felice.Core\Felice.Core.csproj">

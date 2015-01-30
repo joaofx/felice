@@ -1,0 +1,17 @@
+﻿@model Web.Commands.AddImageProductCommand
+
+<div class="row">
+    
+    @using (Html.BeginForm("SaveImage", "Product", FormMethod.Post, new {enctype = "multipart/form-data"}))
+    {
+        @Html.HiddenFor(x => x.ProductId)
+
+        <div class="form-group">
+            @Html.LabelFor(x => x.Image)
+            @Html.TextBoxFor(x => x.Image, new {@class = "form-control", type="file" })
+        </div>
+
+        <input type="submit" value="Save" class="btn btn-primary"/>
+    }
+
+</div>

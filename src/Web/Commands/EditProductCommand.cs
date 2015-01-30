@@ -1,7 +1,6 @@
 ﻿namespace Web.Commands
 {
     using System.ComponentModel;
-    using System.Web;
     using FluentValidation;
     using MediatR;
     using Models;
@@ -21,14 +20,8 @@
             public EditProductValidator()
             {
                 RuleFor(x => x.Name).NotEmpty();
-                //RuleFor(x => x.MainImage).Must(BeValidFile);
+                RuleFor(x => x.Price).NotEmpty();
             }
-
-            //private bool BeValidFile(HttpPostedFileBase file)
-            //{
-            //    //// TODO: http://stackoverflow.com/questions/26689407/my-image-validator-somehow-affects-my-httppostedfilebase-value
-            //    return file != null;
-            //}
         }
     }
 }

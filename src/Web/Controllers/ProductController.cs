@@ -33,7 +33,7 @@
 
         public ActionResult AddImage()
         {
-            return View("Edit", new AddImageProductCommand());
+            return View(new AddImageProductCommand());
         }
 
         [HttpPost]
@@ -49,6 +49,20 @@
             catch (Exception)
             {
                 return View("Edit", command);
+            }
+        }
+
+        [HttpPost]
+        public ActionResult SaveImage(AddImageProductCommand command)
+        {
+            try
+            {
+                var product = _mediator.Send(command);
+                return RedirectToAction("Show", "Product", new { id = command.ProductId });
+            }
+            catch (Exception)
+            {
+                return View("AddImage", command);
             }
         }
     }
