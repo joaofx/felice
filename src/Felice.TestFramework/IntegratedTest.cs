@@ -10,8 +10,6 @@ namespace Felice.TestFramework
 
     public class IntegratedTest : AutomatedTest
     {
-        protected IUnitOfWork unitOfWork;
-
         protected IntegratedTest()
         {
             var connectionString = AppSettings.ConnectionString;
@@ -38,21 +36,15 @@ namespace Felice.TestFramework
 
         public override void BeforeTest()
         {
-            this.unitOfWork = UnitOfWork.Instance();
-
-            using (this.unitOfWork.Begin())
+            using (Dependency.Resolve<ISession>())
             {
-                this.CleanAllTables();
-                this.Scenario();
+                CleanAllTables();
+                Scenario();
             }
-
-            this.unitOfWork.Begin();
         }
 
         public override void AfterTest()
         {
-            this.unitOfWork.Commit();
-            this.unitOfWork.Dispose();
         }
 
         public void CleanAllTables()
@@ -70,15 +62,6 @@ namespace Felice.TestFramework
             Log.Framework.Debug("Tables were cleaned");
         }
 
-        protected void RecreateSession()
-        {
-            Log.Framework.Debug("Recreating session");
-
-            this.unitOfWork.Dispose();
-            this.unitOfWork = UnitOfWork.Instance();
-            this.unitOfWork.Begin();
-        }
-
         protected bool IsPropertyLazy<T, TProperty>(
             T entity,
             Expression<Func<T, TProperty>> action) where T : Entity
@@ -87,7 +70,7 @@ namespace Felice.TestFramework
             string propertyName = expression.Member.Name;
 
             entity.Persist();
-            this.RecreateSession();
+            //RecreateSession();
 
             var session = Dependency.Resolve<ISession>();
             var fetched = session.Get<T>(entity.Id);
