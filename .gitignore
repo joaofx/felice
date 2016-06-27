@@ -161,3 +161,6 @@ bower_components
 node_modules
 Logs
 /src/Web/_bin_deployableAssemblies
+
+.idea
+.idea.*

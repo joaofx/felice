@@ -41,7 +41,7 @@
             var one = this.CreateEntity();
             this.repository.Save(one);
 
-            this.RecreateSession();
+//            this.RecreateSession();
 
             this.repository.ById(one.Id).ShouldEqual(one);
         }
@@ -55,7 +55,7 @@
 
             this.repository.Delete(one);
 
-            this.RecreateSession();
+//            this.RecreateSession();
 
             var compare = this.repository.All();
             compare.Count().ShouldEqual(2);
@@ -72,7 +72,7 @@
 
             this.repository.DeleteById(one.Id);
 
-            this.RecreateSession();
+//            this.RecreateSession();
 
             var compare = this.repository.All();
             compare.Count().ShouldEqual(2);
